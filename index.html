@@ -1,215 +1,527 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espinal, Almonte & Ricth | Inteligencia Jurídica</title>
-    <!-- Tailwind CSS para el diseño -->
+    <title>Espinal, Almonte & Ricth | Inteligencia Jurídica Premium</title>
+    
+    <!-- SEO Básico -->
+    <meta name="description" content="Firma de abogados líder en República Dominicana. Especialistas en derecho corporativo, inmobiliario y litigios estratégicos.">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tipografías elegantes -->
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Fuentes: Libre Baskerville para elegancia, Inter para lectura moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Librería de Animaciones (AOS) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <!-- Iconos -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            deep: '#0f172a',  // Azul Medianoche
+                            gold: '#947b4d',  // Oro Envejecido
+                            goldlight: '#b59a6d',
+                            slate: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Libre Baskerville', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .font-serif { font-family: 'Libre Baskerville', serif; }
-        .bg-brand-deep { background-color: #0f172a; }
-        .text-brand-deep { color: #0f172a; }
-        .bg-brand-gold { background-color: #947b4d; }
-        .text-brand-gold { color: #947b4d; }
-        .border-brand-gold { border-color: #947b4d; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #947b4d 0%, #b59a6d 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+        transition-all { transition: all 0.3s ease; }
     </style>
 </head>
-<body class="bg-white text-slate-800 antialiased">
+<body class="bg-white text-slate-900 font-sans antialiased overflow-x-hidden">
 
-    <!-- BARRA SUPERIOR INFO -->
-    <div class="bg-brand-deep text-white/70 py-2 px-6 md:px-12 hidden lg:block text-[11px] font-medium border-b border-white/5">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <!-- BARRA SUPERIOR (TOP BAR) -->
+    <div class="bg-brand-deep text-white/80 py-2.5 px-6 hidden md:block border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center text-[11px] uppercase tracking-[0.15em] font-medium">
             <div class="flex items-center space-x-8">
-                <span class="flex items-center space-x-2">
-                    <i data-lucide="map-pin" class="w-3 h-3 text-brand-gold"></i>
-                    <span>Distrito Nacional, República Dominicana</span>
+                <span class="flex items-center gap-2 italic text-brand-gold">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                    Confidencialidad Garantizada
                 </span>
-                <span class="flex items-center space-x-2">
-                    <i data-lucide="phone" class="w-3 h-3 text-brand-gold"></i>
-                    <span>829-442-4222</span>
+                <span class="flex items-center gap-2">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-gold"></i>
+                    Santo Domingo, Rep. Dom.
                 </span>
             </div>
-            <div class="flex items-center space-x-6 italic">
-                <i data-lucide="mail" class="w-3 h-3 text-brand-gold"></i>
-                <span>info@oficinaespinal.do</span>
+            <div class="flex items-center space-x-6">
+                <a href="tel:+18294424222" class="hover:text-brand-gold transition-colors italic">829-442-4222</a>
+                <span class="text-white/20">|</span>
+                <a href="mailto:info@oficinaespinal.do" class="hover:text-brand-gold transition-colors italic lowercase">info@oficinaespinal.do</a>
             </div>
         </div>
     </div>
 
-    <!-- NAVEGACIÓN -->
-    <nav class="sticky top-0 w-full z-50 bg-white shadow-sm border-b border-slate-100 py-4 px-6 md:px-12">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex flex-col">
-                <h1 class="font-serif font-bold text-lg md:text-xl tracking-tight text-brand-deep uppercase">
-                    Espinal, Almonte <span class="text-brand-gold italic">&</span> Ricth
-                </h1>
-                <span class="text-[9px] font-bold uppercase tracking-[0.4em] text-slate-400">Consultores Legales</span>
+    <!-- NAVEGACIÓN PRINCIPAL -->
+    <nav class="sticky top-0 w-full z-50 glass-effect border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex flex-col group">
+                <span class="font-serif font-bold text-xl md:text-2xl text-brand-deep leading-none group-hover:text-brand-gold transition-colors">
+                    ESPINAL, ALMONTE <span class="italic text-brand-gold font-light">&</span> RICTH
+                </span>
+                <span class="text-[9px] font-bold uppercase tracking-[0.5em] text-slate-400 mt-1">Consultores Legales de Élite</span>
+            </a>
+
+            <!-- Menú Escritorio -->
+            <div class="hidden lg:flex items-center space-x-10 text-[11px] font-bold uppercase tracking-widest text-slate-600">
+                <a href="#inicio" class="hover:text-brand-gold transition-colors border-b-2 border-transparent hover:border-brand-gold py-1">Inicio</a>
+                <a href="#firma" class="hover:text-brand-gold transition-colors border-b-2 border-transparent hover:border-brand-gold py-1">La Firma</a>
+                <a href="#servicios" class="hover:text-brand-gold transition-colors border-b-2 border-transparent hover:border-brand-gold py-1">Servicios</a>
+                <a href="#metodo" class="hover:text-brand-gold transition-colors border-b-2 border-transparent hover:border-brand-gold py-1">Metodología</a>
+                <a href="#contacto" class="bg-brand-deep text-white px-7 py-3.5 hover:bg-brand-gold transition-all rounded-sm shadow-lg hover:shadow-brand-gold/20">
+                    Agendar Consulta
+                </a>
             </div>
-            <div class="hidden lg:flex items-center space-x-8 text-[12px] font-semibold uppercase tracking-widest text-slate-500">
-                <a href="#inicio" class="hover:text-brand-deep transition-colors">Inicio</a>
-                <a href="#firma" class="hover:text-brand-deep transition-colors">La Firma</a>
-                <a href="#servicios" class="hover:text-brand-deep transition-colors">Servicios</a>
-                <a href="#contacto" class="bg-brand-deep text-white px-6 py-3 hover:bg-slate-800 transition-all rounded-sm">Agendar Cita</a>
-            </div>
+
+            <!-- Botón Móvil -->
+            <button class="lg:hidden text-brand-deep">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
         </div>
     </nav>
 
-    <!-- PORTADA (HERO) -->
-    <section id="inicio" class="relative min-h-screen flex items-center bg-white overflow-hidden">
-        <div class="absolute top-0 right-0 w-1/3 h-full bg-slate-50 hidden lg:block"></div>
-        
-        <div class="max-w-7xl mx-auto w-full px-6 grid lg:grid-cols-12 gap-12 items-center relative z-10">
-            <div class="lg:col-span-7 space-y-12">
-                <div class="space-y-6">
-                    <div class="flex items-center space-x-4">
-                        <div class="h-[1px] w-12 bg-brand-gold"></div>
-                        <span class="text-[10px] uppercase font-bold tracking-[0.6em] text-brand-gold">Inteligencia Jurídica Aplicada</span>
-                    </div>
-                    <h2 class="text-6xl md:text-[6.5rem] text-brand-deep leading-[0.95] font-serif font-bold tracking-tighter">
-                        Justicia <br>
-                        <span class="text-brand-gold italic">Inteligente.</span>
-                    </h2>
+    <!-- SECCIÓN HERO (PORTADA) -->
+    <section id="inicio" class="relative min-h-[90vh] flex items-center pt-10">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -z-10 hidden lg:block"></div>
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+            
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <div class="flex items-center space-x-4 mb-8">
+                    <div class="h-[1px] w-12 bg-brand-gold"></div>
+                    <span class="text-[10px] uppercase font-bold tracking-[0.5em] text-brand-gold">Excelencia Jurídica Dominicana</span>
                 </div>
-                
-                <p class="text-xl md:text-2xl text-slate-500 font-serif leading-relaxed max-w-xl italic font-light">
-                    Elevamos la práctica legal a través de la estrategia y la visión experta. Más de una década redefiniendo el éxito jurídico con inteligencia legal.
+                <h1 class="text-6xl md:text-[5.5rem] font-serif font-bold text-brand-deep leading-[0.9] mb-8 tracking-tighter">
+                    Inteligencia <br>
+                    <span class="text-brand-gold italic font-light">Estructural.</span>
+                </h1>
+                <p class="text-xl text-slate-600 font-light leading-relaxed mb-10 max-w-lg">
+                    No solo practicamos el derecho; diseñamos soluciones estratégicas que protegen su patrimonio y aseguran su futuro en un entorno legal complejo.
                 </p>
-
-                <div class="grid sm:grid-cols-2 gap-10 pt-4">
-                    <div class="space-y-3">
-                        <span class="text-[9px] font-bold uppercase tracking-[0.4em] text-slate-400">Línea Directa</span>
-                        <div class="flex flex-col">
-                            <a href="tel:8294424222" class="text-3xl font-bold font-serif text-brand-deep hover:text-brand-gold transition-colors">829-442-4222</a>
-                            <span class="text-[10px] text-slate-400 font-medium">Atención Inmediata</span>
-                        </div>
-                    </div>
-                    <div class="space-y-3">
-                        <span class="text-[9px] font-bold uppercase tracking-[0.4em] text-slate-400">Consultas Digitales</span>
-                        <div class="flex flex-col">
-                            <a href="mailto:info@oficinaespinal.do" class="text-xl font-serif italic text-brand-deep hover:text-brand-gold transition-colors">info@oficinaespinal.do</a>
-                            <span class="text-[10px] text-slate-400 font-medium">Respuesta en 24h</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pt-6">
-                    <a href="#contacto" class="bg-brand-deep border border-brand-deep text-white px-10 py-5 font-bold uppercase tracking-widest text-[11px] hover:bg-white hover:text-brand-deep transition-all rounded-sm">
-                        Solicitar Evaluación Legal
+                
+                <div class="flex flex-col sm:flex-row gap-4 mb-16">
+                    <a href="#contacto" class="bg-brand-deep text-white px-10 py-5 font-bold uppercase tracking-[0.2em] text-[11px] hover:bg-brand-gold transition-all text-center shadow-2xl">
+                        Evaluación de Caso
+                    </a>
+                    <a href="#servicios" class="border border-slate-200 px-10 py-5 font-bold uppercase tracking-[0.2em] text-[11px] hover:bg-slate-50 transition-all text-center">
+                        Ver Áreas de Práctica
                     </a>
                 </div>
+
+                <!-- Stats rápidos -->
+                <div class="grid grid-cols-3 gap-8 pt-10 border-t border-slate-100">
+                    <div>
+                        <p class="text-3xl font-serif font-bold text-brand-deep">10+</p>
+                        <p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Años</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-serif font-bold text-brand-deep">500+</p>
+                        <p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Casos Éxito</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-serif font-bold text-brand-deep">98%</p>
+                        <p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Retención</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="lg:col-span-5 hidden lg:block relative">
-                <div class="relative aspect-[3/4] overflow-hidden shadow-2xl">
-                    <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=1200" alt="Oficina Legal" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all">
+            <!-- Imagen Hero -->
+            <div class="relative" data-aos="fade-left" data-aos-duration="1000">
+                <div class="relative aspect-[4/5] overflow-hidden rounded-sm shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1200" 
+                         alt="Abogacía de alto nivel" 
+                         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-100">
+                    <div class="absolute inset-0 bg-brand-deep/10"></div>
                 </div>
-                <div class="absolute -bottom-10 -left-10 bg-brand-deep p-10 text-white space-y-2 max-w-[200px]">
-                    <span class="text-4xl font-serif font-bold text-brand-gold">10+</span>
-                    <p class="text-[9px] uppercase tracking-widest font-bold leading-tight">Años de Excelencia Comprobada</p>
+                <!-- Cuadro flotante -->
+                <div class="absolute -bottom-6 -left-6 bg-brand-gold p-8 text-white max-w-[240px] shadow-2xl" data-aos="zoom-in" data-aos-delay="500">
+                    <i data-lucide="quote" class="w-8 h-8 mb-4 opacity-50"></i>
+                    <p class="text-sm font-serif italic leading-relaxed">
+                        "La mejor defensa no es la que reacciona, sino la que anticipa mediante el análisis inteligente."
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- LA FIRMA -->
-    <section id="firma" class="py-24 bg-slate-50 px-6 border-y border-slate-100">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center text-center md:text-left">
-            <div class="flex-1 space-y-6">
-                <span class="text-[10px] uppercase font-bold tracking-[0.5em] text-brand-gold">Sobre Nosotros</span>
-                <h3 class="text-4xl md:text-5xl font-serif font-bold text-brand-deep">Trayectoria y Privacidad.</h3>
-                <p class="text-lg text-slate-600 leading-relaxed max-w-xl">
-                    Con más de una década de experiencia, nuestra firma combina la tradición legal con métodos modernos para asegurar que cada caso reciba la atención inteligente que merece.
-                </p>
-            </div>
-            <div class="flex-1 space-y-4">
-                <div class="flex items-center space-x-4 font-bold border-b border-slate-200 pb-4">
-                    <i data-lucide="check-circle-2" class="text-brand-gold"></i>
-                    <span>Estrategia Legal Personalizada</span>
+    <!-- SECCIÓN: POR QUÉ NOSOTROS (NUEVO) -->
+    <section id="firma" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="space-y-8" data-aos="fade-up">
+                    <span class="text-[10px] uppercase font-bold tracking-[0.5em] text-brand-gold">Nuestra Filosofía</span>
+                    <h2 class="text-4xl font-serif font-bold text-brand-deep leading-tight">
+                        Compromiso con la Verdad <br> y la Eficacia Jurídica.
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        En **Espinal, Almonte & Ricth**, entendemos que cada cliente busca más que un abogado: busca un aliado estratégico. Nuestra firma nació con el objetivo de elevar el estándar de la práctica legal en la República Dominicana, integrando tecnología y un análisis profundo en cada expediente.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-4 text-sm font-semibold text-brand-deep">
+                            <span class="w-6 h-6 rounded-full bg-brand-gold/10 flex items-center justify-center">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-gold"></i>
+                            </span>
+                            Atención Directa por Socios Principales
+                        </li>
+                        <li class="flex items-center gap-4 text-sm font-semibold text-brand-deep">
+                            <span class="w-6 h-6 rounded-full bg-brand-gold/10 flex items-center justify-center">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-gold"></i>
+                            </span>
+                            Reportes de Estatus Quincenales
+                        </li>
+                        <li class="flex items-center gap-4 text-sm font-semibold text-brand-deep">
+                            <span class="w-6 h-6 rounded-full bg-brand-gold/10 flex items-center justify-center">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-gold"></i>
+                            </span>
+                            Especialistas en Blindaje Patrimonial
+                        </li>
+                    </ul>
                 </div>
-                <div class="flex items-center space-x-4 font-bold border-b border-slate-200 pb-4">
-                    <i data-lucide="check-circle-2" class="text-brand-gold"></i>
-                    <span>Resultados Bajo Estricta Ética</span>
-                </div>
-                <div class="flex items-center space-x-4 font-bold">
-                    <i data-lucide="check-circle-2" class="text-brand-gold"></i>
-                    <span>Conexión Directa con Socios</span>
+                <div class="grid grid-cols-2 gap-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 flex flex-col items-center text-center space-y-4 hover:border-brand-gold transition-colors">
+                        <i data-lucide="landmark" class="w-8 h-8 text-brand-gold"></i>
+                        <h4 class="font-serif font-bold text-brand-deep">Ética Inquebrantable</h4>
+                    </div>
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 flex flex-col items-center text-center space-y-4 hover:border-brand-gold transition-colors mt-8">
+                        <i data-lucide="fingerprint" class="w-8 h-8 text-brand-gold"></i>
+                        <h4 class="font-serif font-bold text-brand-deep">Privacidad Total</h4>
+                    </div>
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 flex flex-col items-center text-center space-y-4 hover:border-brand-gold transition-colors">
+                        <i data-lucide="zap" class="w-8 h-8 text-brand-gold"></i>
+                        <h4 class="font-serif font-bold text-brand-deep">Respuestas Ágiles</h4>
+                    </div>
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-slate-100 flex flex-col items-center text-center space-y-4 hover:border-brand-gold transition-colors mt-8">
+                        <i data-lucide="globe" class="w-8 h-8 text-brand-gold"></i>
+                        <h4 class="font-serif font-bold text-brand-deep">Visión Global</h4>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICIOS -->
-    <section id="servicios" class="py-24 bg-white px-6">
-        <div class="max-w-7xl mx-auto text-center mb-16 space-y-4">
-            <span class="text-[10px] uppercase font-bold tracking-[0.5em] text-brand-gold">Servicios Especializados</span>
-            <h3 class="text-4xl font-serif font-bold text-brand-deep">Inteligencia Jurídica a su Alcance</h3>
-        </div>
-        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-            <!-- Servicio 1 -->
-            <div class="p-10 border border-slate-100 hover:border-brand-gold/30 transition-all group">
-                <i data-lucide="building-2" class="w-10 h-10 text-brand-gold mb-6"></i>
-                <h4 class="text-xl font-bold mb-4">Derecho Corporativo</h4>
-                <p class="text-slate-500 text-sm leading-relaxed">Estrategias corporativas inteligentes para la formación y blindaje de sus empresas.</p>
+    <!-- SECCIÓN: SERVICIOS DETALLADOS -->
+    <section id="servicios" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <span class="text-[10px] uppercase font-bold tracking-[0.5em] text-brand-gold">Especialidades</span>
+                <h2 class="text-4xl font-serif font-bold text-brand-deep mt-4 mb-6 text-brand-deep">Nuestras Áreas de Práctica</h2>
+                <p class="text-slate-500">Ofrecemos un abanico integral de servicios legales diseñados para cubrir cada necesidad de su empresa o vida personal.</p>
             </div>
-            <!-- Servicio 2 -->
-            <div class="p-10 border border-slate-100 hover:border-brand-gold/30 transition-all group">
-                <i data-lucide="home" class="w-10 h-10 text-brand-gold mb-6"></i>
-                <h4 class="text-xl font-bold mb-4">Inmobiliario</h4>
-                <p class="text-slate-500 text-sm leading-relaxed">Seguridad y certeza jurídica en cada inversión en bienes raíces.</p>
-            </div>
-            <!-- Servicio 3 -->
-            <div class="p-10 border border-slate-100 hover:border-brand-gold/30 transition-all group">
-                <i data-lucide="gavel" class="w-10 h-10 text-brand-gold mb-6"></i>
-                <h4 class="text-xl font-bold mb-4">Litigios Civiles</h4>
-                <p class="text-slate-500 text-sm leading-relaxed">Defensa técnica con enfoque analítico para resolver conflictos complejos.</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Servicio 1 -->
+                <div class="p-10 border border-slate-100 group hover:border-brand-gold transition-all duration-500 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <i data-lucide="briefcase" class="w-12 h-12 text-brand-gold mb-8 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-brand-deep mb-4 uppercase tracking-wider">Derecho Corporativo</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Constitución de empresas, gestión de actas, fusiones, adquisiciones y secretaría corporativa de alta precisión.</p>
+                    <ul class="text-[12px] text-slate-400 space-y-2 font-medium">
+                        <li>• Estructuración de Franquicias</li>
+                        <li>• Gobierno Corporativo</li>
+                        <li>• Acuerdos de Accionistas</li>
+                    </ul>
+                </div>
+                <!-- Servicio 2 -->
+                <div class="p-10 border border-slate-100 group hover:border-brand-gold transition-all duration-500 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <i data-lucide="home" class="w-12 h-12 text-brand-gold mb-8 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-brand-deep mb-4 uppercase tracking-wider">Derecho Inmobiliario</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Asesoría en compraventa, deslindes, condominios y gestión de títulos ante la Jurisdicción Inmobiliaria.</p>
+                    <ul class="text-[12px] text-slate-400 space-y-2 font-medium">
+                        <li>• Due Diligence de Propiedades</li>
+                        <li>• Arrendamientos Complejos</li>
+                        <li>• Fideicomisos Inmobiliarios</li>
+                    </ul>
+                </div>
+                <!-- Servicio 3 -->
+                <div class="p-10 border border-slate-100 group hover:border-brand-gold transition-all duration-500 card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <i data-lucide="gavel" class="w-12 h-12 text-brand-gold mb-8 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-brand-deep mb-4 uppercase tracking-wider">Litigios Estratégicos</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Representación en materia civil, comercial y laboral con enfoque en resolución alternativa de conflictos.</p>
+                    <ul class="text-[12px] text-slate-400 space-y-2 font-medium">
+                        <li>• Cobros Compulsivos</li>
+                        <li>• Demandas en Responsabilidad</li>
+                        <li>• Arbitraje Comercial</li>
+                    </ul>
+                </div>
+                <!-- Servicio 4 -->
+                <div class="p-10 border border-slate-100 group hover:border-brand-gold transition-all duration-500 card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <i data-lucide="users" class="w-12 h-12 text-brand-gold mb-8 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-brand-deep mb-4 uppercase tracking-wider">Derecho de Familia</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Gestión humana y profesional de divorcios, sucesiones, particiones y planificaciones sucesorales.</p>
+                    <ul class="text-[12px] text-slate-400 space-y-2 font-medium">
+                        <li>• Testamentos y Legados</li>
+                        <li>• Poderes Especiales</li>
+                        <li>• Adopciones Internacionales</li>
+                    </ul>
+                </div>
+                <!-- Servicio 5 -->
+                <div class="p-10 border border-slate-100 group hover:border-brand-gold transition-all duration-500 card-hover" data-aos="fade-up" data-aos-delay="500">
+                    <i data-lucide="file-text" class="w-12 h-12 text-brand-gold mb-8 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-brand-deep mb-4 uppercase tracking-wider">Derecho Administrativo</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Asesoría frente a la administración pública, licitaciones, permisos y recursos contenciosos.</p>
+                    <ul class="text-[12px] text-slate-400 space-y-2 font-medium">
+                        <li>• Compras y Contrataciones</li>
+                        <li>• Registros Sanitarios</li>
+                        <li>• Propiedad Intelectual</li>
+                    </ul>
+                </div>
+                <!-- Servicio 6 (CTA Especial) -->
+                <div class="p-10 bg-brand-deep flex flex-col justify-center items-center text-center text-white space-y-6 card-hover" data-aos="fade-up" data-aos-delay="600">
+                    <h3 class="text-xl font-serif italic text-brand-gold italic text-2xl">¿No ve su necesidad específica aquí?</h3>
+                    <p class="text-white/60 text-sm">Contáctenos. Nuestra red de especialistas cubre todas las ramas del derecho dominicano.</p>
+                    <a href="#contacto" class="text-xs font-bold uppercase tracking-[0.3em] border-b border-brand-gold pb-2 hover:text-brand-gold transition-colors">Consultar ahora</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACTO -->
-    <section id="contacto" class="py-24 px-6 bg-brand-deep text-white">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
-            <div class="space-y-12">
-                <h3 class="text-5xl font-serif italic text-brand-gold">Hablemos hoy.</h3>
-                <div class="space-y-8">
-                    <div class="flex items-start space-x-6">
-                        <i data-lucide="phone" class="w-8 h-8 text-brand-gold"></i>
-                        <div>
-                            <p class="text-2xl font-bold">829-442-4222</p>
-                            <p class="text-sm text-white/50 underline">Llamada o WhatsApp</p>
+    <!-- SECCIÓN: NUESTRO MÉTODO (NUEVO) -->
+    <section id="metodo" class="py-24 bg-brand-deep text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div data-aos="fade-right">
+                    <span class="text-[10px] uppercase font-bold tracking-[0.5em] text-brand-gold">Metodología de Trabajo</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mt-6 mb-10 leading-tight">
+                        Un Proceso Diseñado <br> para la <span class="text-brand-gold italic">Victoria.</span>
+                    </h2>
+                    
+                    <div class="space-y-12">
+                        <div class="flex gap-6">
+                            <span class="text-4xl font-serif italic text-brand-gold/30">01</span>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Diagnóstico Profundo</h4>
+                                <p class="text-white/50 text-sm leading-relaxed">Analizamos cada variable, riesgo y oportunidad de su situación legal antes de emitir un juicio inicial.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <span class="text-4xl font-serif italic text-brand-gold/30">02</span>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Diseño de Estrategia</h4>
+                                <p class="text-white/50 text-sm leading-relaxed">Creamos una hoja de ruta personalizada, definiendo objetivos claros y tiempos de ejecución realistas.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <span class="text-4xl font-serif italic text-brand-gold/30">03</span>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Ejecución y Resultados</h4>
+                                <p class="text-white/50 text-sm leading-relaxed">Accionamos con firmeza técnica, manteniéndolo informado en cada paso hasta alcanzar la resolución.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex items-start space-x-6">
-                        <i data-lucide="mail" class="w-8 h-8 text-brand-gold"></i>
-                        <p class="text-xl italic">info@oficinaespinal.do</p>
-                    </div>
                 </div>
-            </div>
-            <div class="bg-white/5 p-8 border border-white/10 rounded-sm">
-                <form action="#" class="space-y-6">
-                    <input type="text" placeholder="Nombre completo" class="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-brand-gold transition-all">
-                    <input type="email" placeholder="Correo electrónico" class="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-brand-gold transition-all">
-                    <textarea placeholder="Cuéntenos su caso..." rows="4" class="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-brand-gold transition-all"></textarea>
-                    <button class="w-full bg-brand-gold text-white font-bold py-4 uppercase tracking-widest hover:bg-white hover:text-brand-deep transition-all">Enviar Mensaje Inteligente</button>
-                </form>
+                <div class="relative" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1000" alt="Consultoría" class="rounded-sm opacity-80 grayscale">
+                    <div class="absolute inset-0 border-[20px] border-white/5 -m-10 pointer-events-none"></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-black text-white/40 py-10 text-center px-6">
-        <p class="text-[10px] uppercase tracking-widest font-bold">© 2024 Espinal, Almonte & Ricth | Inteligencia Jurídica Aplicada | Santo Domingo, RD</p>
+    <!-- SECCIÓN: PREGUNTAS FRECUENTES (NUEVO) -->
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-[10px] uppercase font-bold tracking-[0.5em] text-brand-gold">Despeje sus Dudas</span>
+                <h2 class="text-3xl font-serif font-bold text-brand-deep mt-4 text-brand-deep">Preguntas Frecuentes</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <details class="group border border-slate-100 rounded-sm p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer" open>
+                    <summary class="flex items-center justify-between gap-1.5 text-brand-deep">
+                        <h5 class="font-bold uppercase tracking-wider text-sm italic">¿Cómo inicio un proceso de consulta con la firma?</h5>
+                        <i data-lucide="plus" class="w-5 h-5 text-brand-gold group-open:rotate-45 transition-transform"></i>
+                    </summary>
+                    <p class="mt-4 text-sm leading-relaxed text-slate-500 italic">
+                        Puede agendar una cita vía WhatsApp, teléfono o completando el formulario de contacto. Ofrecemos tanto consultas presenciales en nuestras oficinas de Santo Domingo como asesorías virtuales para clientes en el extranjero.
+                    </p>
+                </details>
+
+                <details class="group border border-slate-100 rounded-sm p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+                    <summary class="flex items-center justify-between gap-1.5 text-brand-deep">
+                        <h5 class="font-bold uppercase tracking-wider text-sm italic">¿Cuáles son sus honorarios profesionales?</h5>
+                        <i data-lucide="plus" class="w-5 h-5 text-brand-gold group-open:rotate-45 transition-transform"></i>
+                    </summary>
+                    <p class="mt-4 text-sm leading-relaxed text-slate-500 italic">
+                        Nuestros honorarios se estructuran según la complejidad del caso. Trabajamos con modelos de cuota fija (Flat Fees) para servicios corporativos y por igualas mensuales o cuotas de litis según la naturaleza del proceso.
+                    </p>
+                </details>
+
+                <details class="group border border-slate-100 rounded-sm p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+                    <summary class="flex items-center justify-between gap-1.5 text-brand-deep">
+                        <h5 class="font-bold uppercase tracking-wider text-sm italic">¿Trabajan con clientes fuera de República Dominicana?</h5>
+                        <i data-lucide="plus" class="w-5 h-5 text-brand-gold group-open:rotate-45 transition-transform"></i>
+                    </summary>
+                    <p class="mt-4 text-sm leading-relaxed text-slate-500 italic">
+                        Sí, representamos a numerosos inversionistas extranjeros y dominicanos ausentes, especialmente en temas inmobiliarios, corporativos y sucesorales, utilizando canales digitales para mantener una comunicación fluida.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO FINAL -->
+    <section id="contacto" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="bg-brand-deep rounded-sm overflow-hidden shadow-2xl grid lg:grid-cols-5">
+                <div class="lg:col-span-2 p-12 lg:p-16 bg-brand-gold text-white flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-4xl font-serif font-bold mb-8">Póngase en contacto hoy mismo.</h3>
+                        <p class="text-white/80 mb-12 font-light italic">Nuestro equipo legal está listo para analizar su caso con la discreción y el rigor que usted merece.</p>
+                        
+                        <div class="space-y-8">
+                            <div class="flex items-center gap-6">
+                                <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                                    <i data-lucide="phone" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase font-bold tracking-widest opacity-60">Llámenos</p>
+                                    <p class="font-bold text-lg leading-none">829-442-4222</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-6">
+                                <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                                    <i data-lucide="mail" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase font-bold tracking-widest opacity-60">Escríbanos</p>
+                                    <p class="font-bold text-lg leading-none">info@oficinaespinal.do</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-12 flex gap-4">
+                        <a href="#" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-brand-gold transition-all italic font-serif">in</a>
+                        <a href="#" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-brand-gold transition-all italic font-serif">ig</a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3 p-12 lg:p-16 bg-white">
+                    <form action="#" class="space-y-8">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="space-y-2">
+                                <label class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Nombre Completo</label>
+                                <input type="text" class="w-full border-b border-slate-200 py-3 outline-none focus:border-brand-gold transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Correo Electrónico</label>
+                                <input type="email" class="w-full border-b border-slate-200 py-3 outline-none focus:border-brand-gold transition-all">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Tipo de Servicio</label>
+                            <select class="w-full border-b border-slate-200 py-3 outline-none focus:border-brand-gold transition-all bg-transparent text-sm">
+                                <option>Derecho Corporativo</option>
+                                <option>Derecho Inmobiliario</option>
+                                <option>Litigios</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Mensaje / Resumen del Caso</label>
+                            <textarea rows="4" class="w-full border-b border-slate-200 py-3 outline-none focus:border-brand-gold transition-all"></textarea>
+                        </div>
+                        <button class="w-full gold-gradient text-white font-bold py-5 uppercase tracking-[0.3em] text-[11px] hover:shadow-xl transition-all">
+                            Enviar Solicitud de Consulta
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-deep text-white py-20 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+            <div class="max-w-xs space-y-6">
+                <h4 class="font-serif font-bold text-xl text-brand-gold">Espinal, Almonte <span class="italic font-light">&</span> Ricth</h4>
+                <p class="text-white/40 text-sm leading-relaxed">
+                    Líderes en consultoría legal estratégica. Brindamos seguridad jurídica en el corazón de la República Dominicana.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+                <div class="space-y-4">
+                    <h5 class="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold">Navegación</h5>
+                    <ul class="text-sm text-white/60 space-y-2 font-medium">
+                        <li><a href="#inicio" class="hover:text-white">Inicio</a></li>
+                        <li><a href="#firma" class="hover:text-white">La Firma</a></li>
+                        <li><a href="#servicios" class="hover:text-white">Servicios</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h5 class="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold">Legal</h5>
+                    <ul class="text-sm text-white/60 space-y-2 font-medium">
+                        <li><a href="#" class="hover:text-white">Términos de Uso</a></li>
+                        <li><a href="#" class="hover:text-white">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4 col-span-2 md:col-span-1">
+                    <h5 class="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold">Newsletter</h5>
+                    <p class="text-[11px] text-white/40 mb-4 italic italic">Reciba actualizaciones legales relevantes.</p>
+                    <div class="flex">
+                        <input type="text" placeholder="Tu email" class="bg-white/5 border-none p-3 text-xs w-full focus:ring-1 ring-brand-gold outline-none">
+                        <button class="bg-brand-gold px-4 hover:bg-white hover:text-brand-gold transition-colors">
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-white/5 mt-20 pt-10 flex flex-col md:flex-row justify-between items-center text-[10px] text-white/30 uppercase tracking-[0.2em]">
+            <p>© 2024 Espinal, Almonte & Ricth. Todos los derechos reservados.</p>
+            <p>Santo Domingo, Distrito Nacional, R.D.</p>
+        </div>
     </footer>
 
-    <!-- Script para los Iconos -->
+    <!-- Scripts: Lucide Icons y AOS (Animaciones) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Inicializar iconos
         lucide.createIcons();
+        
+        // Inicializar animaciones de scroll
+        AOS.init({
+            once: true,
+            offset: 100
+        });
+
+        // Efecto scroll en Navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-md');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2', 'shadow-md');
+            }
+        });
     </script>
 </body>
 </html>
