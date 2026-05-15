@@ -1,1 +1,1 @@
-# oficnaespinal.com.do
+# oficnaespinal.do
