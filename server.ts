@@ -43,7 +43,7 @@ async function startServer() {
       const client = getResend();
       const { data, error } = await client.emails.send({
         from: 'Espinal & Almonte Web <onboarding@resend.dev>',
-        to: ['info@oficinaespinal.do'],
+        to: ['eduardoespinaldeaza@gmail.com'],
         subject: `Nueva Consulta Legal: ${name}`,
         replyTo: email,
         text: `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`,
