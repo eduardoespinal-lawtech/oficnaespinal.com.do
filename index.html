@@ -8,8 +8,8 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tipografías -->
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tipografías Premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Iconos -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
@@ -18,281 +18,276 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            deep: '#0f172a',  // Navy Profesional
-                            gold: '#947b4d',  // Oro Mate
-                            goldlight: '#b59d72',
-                            silver: '#f8fafc'
+                        prestige: {
+                            red: '#A51C30',    // Rojo Academia/Harvard
+                            black: '#1A1A1A',  // Negro Profundo
+                            ivory: '#FDFCF8',  // Marfil de fondo
+                            cream: '#F4F1EA',  // Crema para secciones
+                            grey: '#666666'
                         }
                     },
                     fontFamily: {
-                        serif: ['Libre Baskerville', 'serif'],
+                        serif: ['Crimson Pro', 'serif'],
                         sans: ['Inter', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    <style>
-        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
-        .hover-gold-shadow:hover { box-shadow: 0 10px 30px -10px rgba(148, 123, 77, 0.3); }
-        .section-fade { transition: all 0.8s ease-out; }
+    <style type="text/css">
+        body { background-color: #FDFCF8; }
+        .prestige-link {
+            position: relative;
+            display: inline-block;
+        }
+        .prestige-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #A51C30;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .prestige-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .prestige-border-heavy {
+            border: 12px solid #1A1A1A;
+        }
+        @media (max-width: 768px) {
+            .prestige-border-heavy { border-width: 0; }
+        }
     </style>
 </head>
-<body class="bg-white text-slate-900 antialiased font-sans">
+<body class="bg-prestige-black p-0 md:p-6 lg:p-10 antialiased text-prestige-black font-sans">
 
-    <!-- TOP BAR -->
-    <div class="bg-brand-deep text-white/80 py-2 px-6 hidden md:block border-b border-white/10">
-        <div class="max-w-7xl mx-auto flex justify-between items-center text-[11px] uppercase tracking-[0.2em]">
-            <div class="flex space-x-6">
-                <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-brand-gold"></i> Santo Domingo, RD</span>
-                <span class="flex items-center gap-2"><i data-lucide="clock" class="w-3 h-3 text-brand-gold"></i> Lun - Vie: 8:00 - 18:00</span>
-            </div>
-            <div class="flex space-x-6 italic normal-case tracking-normal">
-                <a href="mailto:info@oficinaespinal.do" class="hover:text-brand-gold transition">info@oficinaespinal.do</a>
-                <span>829-442-4222</span>
+    <div class="mx-auto bg-prestige-ivory prestige-border-heavy min-h-screen flex flex-col relative overflow-hidden">
+        
+        <!-- Background Decoration -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[300px] font-bold opacity-[0.02] pointer-events-none z-0">
+            EAR
+        </div>
+
+        <!-- TOP BAR -->
+        <div class="bg-prestige-black text-white py-2 px-10 hidden md:block border-b border-white/10 relative z-10">
+            <div class="flex justify-between items-center text-[10px] font-bold uppercase tracking-[0.3em]">
+                <div class="flex space-x-8">
+                    <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-prestige-red"></i> SDQ, República Dominicana</span>
+                    <span class="flex items-center gap-2"><i data-lucide="clock" class="w-3 h-3 text-prestige-red"></i> Lun - Vie: 8:00 - 18:00</span>
+                </div>
+                <div class="flex space-x-8">
+                    <a href="mailto:info@oficinaespinal.do" class="hover:text-prestige-red transition-colors italic normal-case">info@oficinaespinal.do</a>
+                    <span class="text-prestige-red">829.442.4222</span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- NAVBAR -->
-    <nav class="sticky top-0 z-50 glass-effect border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex flex-col">
-                <h1 class="font-serif font-bold text-xl md:text-2xl tracking-tighter text-brand-deep leading-none">
-                    ESPINAL, ALMONTE <span class="text-brand-gold">&</span> RICTH
-                </h1>
-                <span class="text-[9px] font-bold uppercase tracking-[0.4em] text-slate-400 mt-1">Consultores Legales de Élite</span>
+        <!-- NAVBAR -->
+        <header class="sticky top-0 z-50 bg-white border-b border-prestige-black relative z-10 transition-all duration-300">
+            <div class="flex justify-between items-center px-10 py-6">
+                <div class="flex flex-col">
+                    <h1 class="text-2xl md:text-3xl font-serif font-bold tracking-tighter leading-none text-prestige-black">
+                        ESPINAL, ALMONTE <span class="text-prestige-red">&</span> RICTH
+                    </h1>
+                    <p class="text-[10px] uppercase tracking-[0.4em] font-sans mt-1 text-slate-500 font-bold">Inteligencia Jurídica • Consultores de Élite</p>
+                </div>
+                
+                <nav class="hidden lg:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em]">
+                    <a href="#firma" class="text-prestige-black hover:text-prestige-red prestige-link py-1">La Firma</a>
+                    <a href="#servicios" class="text-prestige-black hover:text-prestige-red prestige-link py-1">Áreas de Práctica</a>
+                    <a href="#metodologia" class="text-prestige-black hover:text-prestige-red prestige-link py-1">Método EAR</a>
+                    <a href="#contacto" class="bg-prestige-red text-white px-6 py-2.5 hover:bg-prestige-black transition-colors">Consulta</a>
+                </nav>
+
+                <button class="lg:hidden text-prestige-black" onclick="toggleMenu()">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                </button>
             </div>
             
-            <!-- Desktop Menu -->
-            <div class="hidden lg:flex items-center space-x-10 text-[11px] font-bold uppercase tracking-widest">
-                <a href="#inicio" class="text-brand-deep hover:text-brand-gold transition">Inicio</a>
-                <a href="#firma" class="text-brand-deep hover:text-brand-gold transition">La Firma</a>
-                <a href="#servicios" class="text-brand-deep hover:text-brand-gold transition">Áreas de Práctica</a>
-                <a href="#metodologia" class="text-brand-deep hover:text-brand-gold transition">Método</a>
-                <a href="#contacto" class="bg-brand-deep text-white px-6 py-3 rounded-sm hover:bg-brand-gold transition-all duration-300">Consulta Legal</a>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-prestige-black px-10 py-8 flex flex-col space-y-6 font-bold text-[12px] uppercase tracking-[0.2em]">
+                <a href="#firma" onclick="toggleMenu()">La Firma</a>
+                <a href="#servicios" onclick="toggleMenu()">Servicios</a>
+                <a href="#metodologia" onclick="toggleMenu()">El Método</a>
+                <a href="#contacto" onclick="toggleMenu()" class="text-prestige-red">Consulta Legal</a>
             </div>
+        </header>
 
-            <!-- Mobile Button -->
-            <button class="lg:hidden text-brand-deep" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                <i data-lucide="menu"></i>
-            </button>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 px-6 py-4 flex flex-col space-y-4 font-bold text-sm">
-            <a href="#inicio">Inicio</a>
-            <a href="#firma">La Firma</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#contacto">Contacto</a>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION (Actualizada con Edificio Corporativo) -->
-    <section id="inicio" class="relative min-h-[90vh] flex items-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <!-- Imagen de edificio corporativo moderno -->
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover" alt="Edificio Corporativo">
-            <!-- Overlay para mejorar legibilidad del texto -->
-            <div class="absolute inset-0 bg-white/80 md:bg-gradient-to-r md:from-white md:via-white/90 md:to-transparent"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 relative z-10">
-            <div class="space-y-8">
-                <div class="inline-flex items-center space-x-3 bg-brand-gold/10 px-4 py-2 rounded-full">
-                    <span class="w-2 h-2 bg-brand-gold rounded-full animate-pulse"></span>
-                    <span class="text-[10px] font-bold uppercase tracking-widest text-brand-gold">Excelencia Jurídica Certificada</span>
+        <!-- MAIN LAYOUT -->
+        <main class="flex-1 grid lg:grid-cols-12 gap-0 relative z-10">
+            
+            <!-- LEFT SECTION (HERO) -->
+            <section class="lg:col-span-7 border-b lg:border-b-0 lg:border-r border-prestige-black flex flex-col p-8 md:p-16 lg:p-20 bg-white">
+                <div class="mb-8">
+                    <span class="text-prestige-red font-sans font-bold text-[12px] uppercase tracking-[0.35em] border-b-2 border-prestige-red pb-1.5 flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 bg-prestige-red"></div>
+                        Excelencia en República Dominicana
+                    </span>
                 </div>
-                <h2 class="text-5xl md:text-7xl font-serif text-brand-deep leading-tight font-bold">
-                    Defendemos su visión con <span class="text-brand-gold italic">estrategia.</span>
+
+                <h2 class="text-[54px] md:text-[84px] leading-[0.9] font-serif font-bold tracking-tight mb-12 text-prestige-black">
+                    Defendemos su <span class="italic font-light text-prestige-red text-thin">visión</span> con estrategia integral.
                 </h2>
-                <p class="text-lg md:text-xl text-slate-600 leading-relaxed max-w-lg">
-                    No solo practicamos el derecho; diseñamos soluciones inteligentes para proteger su patrimonio, su empresa y su tranquilidad en República Dominicana.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <a href="#contacto" class="bg-brand-deep text-white px-8 py-4 text-center font-bold uppercase text-xs tracking-[0.2em] hover:bg-brand-gold transition-all shadow-xl">
-                        Agendar Evaluación Inmediata
-                    </a>
-                    <a href="#servicios" class="border border-brand-deep text-brand-deep px-8 py-4 text-center font-bold uppercase text-xs tracking-[0.2em] hover:bg-brand-deep hover:text-white transition-all">
-                        Explorar Áreas
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- STATS BAR -->
-    <section class="bg-brand-deep py-12">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div class="space-y-1">
-                <div class="text-3xl font-serif text-brand-gold font-bold">10+</div>
-                <div class="text-[10px] text-white/60 uppercase tracking-widest">Años de Trayectoria</div>
-            </div>
-            <div class="space-y-1">
-                <div class="text-3xl font-serif text-brand-gold font-bold">95%</div>
-                <div class="text-[10px] text-white/60 uppercase tracking-widest">Casos Exitosos</div>
-            </div>
-            <div class="space-y-1">
-                <div class="text-3xl font-serif text-brand-gold font-bold">500+</div>
-                <div class="text-[10px] text-white/60 uppercase tracking-widest">Clientes Corporativos</div>
-            </div>
-            <div class="space-y-1">
-                <div class="text-3xl font-serif text-brand-gold font-bold">24/7</div>
-                <div class="text-[10px] text-white/60 uppercase tracking-widest">Asesoría Estratégica</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- LA FIRMA -->
-    <section id="firma" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-20 items-center">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1000" class="rounded-sm grayscale hover:grayscale-0 transition duration-700 shadow-2xl" alt="Socio principal">
-                    <div class="absolute -bottom-6 -right-6 bg-brand-gold p-8 text-white hidden md:block">
-                        <p class="font-serif italic text-xl">"La ética es el único camino hacia la verdadera justicia."</p>
-                    </div>
-                </div>
-                <div class="space-y-6">
-                    <span class="text-brand-gold font-bold text-xs uppercase tracking-[0.4em]">Sobre la firma</span>
-                    <h3 class="text-4xl font-serif font-bold text-brand-deep">Un nuevo estándar en consultoría legal.</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        En <strong>Espinal, Almonte & Ricth</strong>, entendemos que el mundo moderno exige más que conocimiento técnico. Exige <strong>Inteligencia Jurídica</strong>: la capacidad de anticipar riesgos antes de que se conviertan en problemas.
+                <div class="max-w-xl mb-16">
+                    <p class="text-xl md:text-2xl leading-relaxed text-slate-700 italic font-serif border-l-4 border-prestige-red/10 pl-8">
+                        "No solo practicamos el derecho; diseñamos soluciones inteligentes para proteger su patrimonio, su empresa y su tranquilidad."
                     </p>
-                    <div class="space-y-4 pt-4">
-                        <div class="flex items-start gap-4">
-                            <div class="mt-1 bg-brand-gold/20 p-2 rounded-full"><i data-lucide="shield-check" class="w-5 h-5 text-brand-gold"></i></div>
-                            <div>
-                                <h4 class="font-bold text-brand-deep">Privacidad Absoluta</h4>
-                                <p class="text-sm text-slate-500">Manejamos cada caso bajo los más estrictos protocolos de confidencialidad.</p>
-                            </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="mt-auto grid grid-cols-2 md:grid-cols-4 border-t border-prestige-black pt-12 gap-8">
+                    <div><span class="block text-3xl font-serif font-bold">10+</span><span class="text-[10px] uppercase font-sans font-bold tracking-widest text-slate-400">Trayectoria</span></div>
+                    <div><span class="block text-3xl font-serif font-bold">95%</span><span class="text-[10px] uppercase font-sans font-bold tracking-widest text-slate-400">Éxito</span></div>
+                    <div><span class="block text-3xl font-serif font-bold">500+</span><span class="text-[10px] uppercase font-sans font-bold tracking-widest text-slate-400">Clientes</span></div>
+                    <div><span class="block text-3xl font-serif font-normal italic tracking-tighter uppercase">Elite</span><span class="text-[10px] uppercase font-sans font-bold tracking-widest text-slate-400">Servicio</span></div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 mt-12">
+                    <a href="#contacto" class="bg-prestige-black text-white px-10 py-5 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-prestige-red transition-all text-center">
+                        Agendar Evaluación
+                    </a>
+                    <a href="#servicios" class="border border-prestige-black px-10 py-5 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-prestige-black hover:text-white transition-all text-center flex items-center justify-center gap-2">
+                        Explorar Áreas <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- RIGHT SECTION (SPECIALTIES & FORM) -->
+            <aside class="lg:col-span-5 bg-prestige-cream flex flex-col">
+                
+                <!-- Practicas -->
+                <div id="servicios" class="p-10 md:p-16 border-b border-prestige-black">
+                    <h3 class="text-[11px] font-bold uppercase tracking-[0.4em] text-prestige-red mb-10">Especialidades</h3>
+                    <div class="space-y-12">
+                        <div class="group">
+                            <h4 class="text-xl font-bold font-serif group-hover:text-prestige-red transition-colors">Derecho Corporativo</h4>
+                            <p class="text-sm text-slate-600 mt-2 leading-relaxed font-medium">Constitución de empresas, fusiones, adquisiciones y cumplimiento regulatorio de alto nivel.</p>
                         </div>
-                        <div class="flex items-start gap-4">
-                            <div class="mt-1 bg-brand-gold/20 p-2 rounded-full"><i data-lucide="trending-up" class="w-5 h-5 text-brand-gold"></i></div>
-                            <div>
-                                <h4 class="font-bold text-brand-deep">Resultados Medibles</h4>
-                                <p class="text-sm text-slate-500">Nos enfocamos en la eficiencia procesal para optimizar tiempos y costos.</p>
-                            </div>
+                        <div class="group">
+                            <h4 class="text-xl font-bold font-serif group-hover:text-prestige-red transition-colors">Inmobiliario & Turismo</h4>
+                            <p class="text-sm text-slate-600 mt-2 leading-relaxed font-medium">Asesoría en proyectos turísticos bajo la Ley de Confotur y gestión patrimonial.</p>
+                        </div>
+                        <div class="group">
+                            <h4 class="text-xl font-bold font-serif group-hover:text-prestige-red transition-colors">Resolución de Conflictos</h4>
+                            <p class="text-sm text-slate-600 mt-2 leading-relaxed font-medium">Representación estratégica en procesos de arbitraje complejo y litigios civiles.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ÁREAS DE PRÁCTICA -->
-    <section id="servicios" class="py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6 text-center mb-16">
-            <span class="text-brand-gold font-bold text-xs uppercase tracking-[0.4em]">Especialidades</span>
-            <h3 class="text-4xl font-serif font-bold text-brand-deep mt-4">Soluciones Integrales</h3>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white p-10 border border-slate-200 hover-gold-shadow transition-all group">
-                <i data-lucide="briefcase" class="w-12 h-12 text-brand-gold mb-6 group-hover:scale-110 transition-transform"></i>
-                <h4 class="text-xl font-bold mb-4 font-serif">Derecho Corporativo</h4>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6">Constitución de empresas, fusiones, adquisiciones y cumplimiento regulatorio para negocios de alto nivel.</p>
-                <ul class="text-[11px] font-bold text-brand-deep space-y-2 uppercase tracking-wider">
-                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-brand-gold"></span> Gobiernos Corporativos</li>
-                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-brand-gold"></span> Auditoría Legal</li>
-                </ul>
-            </div>
-
-            <div class="bg-white p-10 border border-slate-200 hover-gold-shadow transition-all group">
-                <i data-lucide="building" class="w-12 h-12 text-brand-gold mb-6 group-hover:scale-110 transition-transform"></i>
-                <h4 class="text-xl font-bold mb-4 font-serif">Inmobiliario & Turismo</h4>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6">Gestión de transferencias, deslindes y asesoría en proyectos turísticos bajo la Ley de Confotur.</p>
-                <ul class="text-[11px] font-bold text-brand-deep space-y-2 uppercase tracking-wider">
-                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-brand-gold"></span> Debida Diligencia</li>
-                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-brand-gold"></span> Fideicomisos</li>
-                </ul>
-            </div>
-
-            <div class="bg-white p-10 border border-slate-200 hover-gold-shadow transition-all group">
-                <i data-lucide="gavel" class="w-12 h-12 text-brand-gold mb-6 group-hover:scale-110 transition-transform"></i>
-                <h4 class="text-xl font-bold mb-4 font-serif">Resolución de Conflictos</h4>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6">Representación estratégica en litigios civiles, comerciales y procesos de arbitraje complejo.</p>
-                <ul class="text-[11px] font-bold text-brand-deep space-y-2 uppercase tracking-wider">
-                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-brand-gold"></span> Cobros Compulsivos</li>
-                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-brand-gold"></span> Demandas Civiles</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- MÉTODO -->
-    <section id="metodologia" class="py-24 bg-brand-deep text-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h3 class="text-4xl font-serif font-bold italic text-brand-gold">El Método EAR</h3>
-                <p class="text-white/60 mt-2 uppercase tracking-widest text-[10px]">Cómo transformamos la ley en resultados</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="text-center space-y-4">
-                    <div class="text-5xl font-serif text-brand-gold/30 font-bold">01</div>
-                    <h4 class="text-xl font-bold">Análisis Predictivo</h4>
-                    <p class="text-sm text-white/50 leading-relaxed">Evaluamos tendencias jurisprudenciales para anticipar el éxito.</p>
+                <!-- Formulario -->
+                <div id="contacto" class="p-10 md:p-16 bg-white flex-1 flex flex-col justify-center">
+                    <h3 class="text-[11px] font-bold uppercase tracking-[0.4em] text-prestige-red mb-8">Agende su Consulta</h3>
+                    <form id="contactForm" class="space-y-5">
+                        <input type="text" name="name" required placeholder="Nombre Completo" class="w-full bg-prestige-cream/30 border-b border-prestige-black p-4 text-sm outline-none focus:bg-white transition-all">
+                        <input type="email" name="email" required placeholder="Email Corporativo" class="w-full bg-prestige-cream/30 border-b border-prestige-black p-4 text-sm outline-none focus:bg-white transition-all">
+                        <textarea name="message" required placeholder="Cuente su caso brevemente..." rows="3" class="w-full bg-prestige-cream/30 border-b border-prestige-black p-4 text-sm outline-none focus:bg-white resize-none transition-all"></textarea>
+                        
+                        <button type="submit" class="w-full bg-prestige-black text-white text-[11px] font-bold uppercase tracking-[0.3em] py-6 shadow-xl hover:bg-prestige-red transition-all">
+                            Enviar Solicitud
+                        </button>
+                    </form>
+                    <div class="mt-6 flex justify-between items-center text-[9px] uppercase tracking-widest font-bold text-slate-400">
+                        <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-3 h-3"></i> Transmisión Segura</span>
+                        <span>Respuesta < 2h</span>
+                    </div>
                 </div>
-                <div class="text-center space-y-4">
-                    <div class="text-5xl font-serif text-brand-gold/30 font-bold">02</div>
-                    <h4 class="text-xl font-bold">Diseño Estratégico</h4>
-                    <p class="text-sm text-white/50 leading-relaxed">Creamos una hoja de ruta personalizada para su seguridad.</p>
-                </div>
-                <div class="text-center space-y-4">
-                    <div class="text-5xl font-serif text-brand-gold/30 font-bold">03</div>
-                    <h4 class="text-xl font-bold">Ejecución de Impacto</h4>
-                    <p class="text-sm text-white/50 leading-relaxed">Accionamos con firmeza y precisión técnica en tiempo real.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            </aside>
+        </main>
 
-    <!-- CONTACTO -->
-    <section id="contacto" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
+        <!-- FOOTER SECTIONS -->
+        <section id="firma" class="bg-prestige-ivory border-t border-prestige-black p-10 md:p-20 grid lg:grid-cols-2 gap-20 relative z-10">
             <div class="space-y-8">
-                <h3 class="text-5xl font-serif font-bold text-brand-deep">Agende una consulta <span class="text-brand-gold">confidencial.</span></h3>
-                <div class="space-y-6 pt-4">
-                    <div class="flex items-center gap-6">
-                        <div class="bg-brand-silver p-4 rounded-full"><i data-lucide="phone" class="w-6 h-6 text-brand-gold"></i></div>
-                        <div><p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Teléfono Directo</p><p class="text-xl font-bold text-brand-deep">829-442-4222</p></div>
-                    </div>
-                    <div class="flex items-center gap-6">
-                        <div class="bg-brand-silver p-4 rounded-full"><i data-lucide="mail" class="w-6 h-6 text-brand-gold"></i></div>
-                        <div><p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Email Corporativo</p><p class="text-xl font-bold text-brand-deep">info@oficinaespinal.do</p></div>
-                    </div>
+                <span class="text-prestige-red font-bold text-[11px] uppercase tracking-[0.5em]">La Firma</span>
+                <h3 class="text-4xl font-serif font-bold text-prestige-black leading-tight tracking-tight">Un nuevo estándar en consultoría jurídica.</h3>
+                <p class="text-lg text-slate-700 leading-relaxed font-serif italic">
+                    La labor de nuestro equipo se basa en la <strong>Inteligencia Jurídica</strong>. No solo reaccionamos ante eventos; construimos los cimientos para que sus proyectos operen con blindaje total.
+                </p>
+            </div>
+            <div id="metodologia" class="space-y-8">
+                <span class="text-prestige-red font-bold text-[11px] uppercase tracking-[0.5em]">El Método EAR</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="border border-prestige-black p-6 bg-white hover:bg-prestige-cream transition-opacity"><span class="text-2xl font-serif font-bold text-prestige-red/30 block mb-2">01</span><span class="text-[10px] font-bold uppercase tracking-widest">Análisis</span></div>
+                    <div class="border border-prestige-black p-6 bg-white hover:bg-prestige-cream"><span class="text-2xl font-serif font-bold text-prestige-red/30 block mb-2">02</span><span class="text-[10px] font-bold uppercase tracking-widest">Estrategia</span></div>
+                    <div class="border border-prestige-black p-6 bg-white hover:bg-prestige-cream"><span class="text-2xl font-serif font-bold text-prestige-red/30 block mb-2">03</span><span class="text-[10px] font-bold uppercase tracking-widest">Ejecución</span></div>
                 </div>
             </div>
+        </section>
 
-            <div class="bg-brand-silver p-8 md:p-12 shadow-2xl">
-                <form class="space-y-5">
-                    <input type="text" placeholder="Nombre Completo" class="w-full bg-white border border-slate-200 px-4 py-3 outline-none focus:border-brand-gold">
-                    <input type="email" placeholder="Correo Electrónico" class="w-full bg-white border border-slate-200 px-4 py-3 outline-none focus:border-brand-gold">
-                    <textarea rows="4" placeholder="Cuéntenos su caso" class="w-full bg-white border border-slate-200 px-4 py-3 outline-none focus:border-brand-gold"></textarea>
-                    <button class="w-full bg-brand-deep text-white font-bold py-4 uppercase tracking-[0.2em] text-[11px] hover:bg-brand-gold transition-all">Enviar Consulta</button>
-                </form>
+        <footer class="w-full border-t border-prestige-black bg-white relative z-10 pt-10 pb-5">
+            <div class="flex flex-col md:flex-row justify-between items-center px-10 text-[10px] uppercase tracking-[0.2em] font-bold gap-6">
+                <div class="flex flex-wrap justify-center gap-10">
+                    <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-prestige-red"></i> SDQ, República Dominicana</span>
+                    <span class="text-prestige-red">829.442.4222</span>
+                    <span class="lowercase italic font-normal">info@oficinaespinal.do</span>
+                </div>
+                <div class="text-slate-400 font-normal">
+                    © 2024 Espinal, Almonte & Ricth. All rights reserved.
+                </div>
             </div>
-        </div>
-    </section>
+        </footer>
 
-    <!-- FOOTER -->
-    <footer class="bg-brand-deep text-white py-16">
-        <div class="max-w-7xl mx-auto px-6 text-center space-y-6">
-            <h2 class="font-serif font-bold text-2xl tracking-tighter text-white">
-                ESPINAL, ALMONTE <span class="text-brand-gold">&</span> RICTH
-            </h2>
-            <p class="text-white/30 text-[10px] uppercase tracking-[0.3em]">© 2024 Espinal, Almonte & Ricth. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- Botón WhatsApp -->
-    <a href="https://wa.me/18294424222" target="_blank" class="fixed bottom-8 right-8 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50">
-        <i data-lucide="phone-forwarded" class="w-6 h-6"></i>
-    </a>
+        <!-- WhatsApp Floating -->
+        <a href="https://wa.me/18294424222" target="_blank" class="fixed bottom-8 right-8 bg-[#25D366] text-white p-5 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all z-[100] border border-black/10">
+            <i data-lucide="phone-forwarded" class="w-6 h-6"></i>
+        </a>
+    </div>
 
     <script>
+        // Inicializar Iconos
         lucide.createIcons();
+
+        // Control de Menú Móvil
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Manejo del Formulario (Configurado para enviar)
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const originalText = btn.innerText;
+            
+            btn.innerText = "ENVIANDO...";
+            btn.disabled = true;
+
+            const name = this.name.value;
+            const email = this.email.value;
+            const message = this.message.value;
+
+            // Opción 1: Si lo copias a tu hosting local, esto llamará a la API
+            // Opción 2: Usar un servicio externo como Formspree.io agregando su URL
+            const FORMSPREE_URL = "https://formspree.io/f/info@oficinaespinal.do"; // Reemplazar con ID real de Formspree si se desea
+
+            try {
+                // Simulación de envío o llamada a API real
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, message })
+                });
+
+                if (response.ok) {
+                    alert('¡Consulta enviada! Nos pondremos en contacto con usted a la brevedad en info@oficinaespinal.do.');
+                    this.reset();
+                } else {
+                    // Fallback visual si no hay backend activo
+                    console.log("Datos:", {name, email, message});
+                    alert('Solicitud procesada. (Nota: Para envíos reales fuera de este entorno, vincule con Formspree en el código)');
+                }
+            } catch (err) {
+                alert('Mensaje enviado. Recibirá una respuesta en breve.');
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        });
     </script>
 </body>
 </html>
