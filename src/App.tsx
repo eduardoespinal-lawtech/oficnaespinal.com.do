@@ -39,40 +39,82 @@ export default function App() {
 
   const practices = [
     {
-      title: 'Derecho Corporativo & M&A',
-      desc: 'Lideramos fusiones y adquisiciones complejas, estructuración de capital y cumplimiento transaccional transfronterizo.',
-      image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1000',
-      details: ['Gobierno Corporativo', 'Joint Ventures', 'Venture Capital', 'Due Diligence']
+      title: 'Corporativo & M&A',
+      desc: 'Fusiones, adquisiciones y reestructuraciones societarias de alta complejidad con enfoque en optimización fiscal.',
+      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000',
+      details: ['Gobierno Corporativo', 'Joint Ventures', 'Capital de Riesgo', 'Inversión Extranjera']
     },
     {
-      title: 'Energía & Infraestructura',
-      desc: 'Asesoría estratégica en proyectos de infraestructura, energía renovable, concesiones y marcos regulatorios eléctricos.',
+      title: 'Energía & Minas',
+      desc: 'Asesoría en renovables, hidrocarburos y minería. Gestión de permisos y marcos regulatorios complejos.',
       image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1000',
-      details: ['Energía Solar & Eólica', 'Minería', 'Asocaiciones Público-Privadas', 'Permitomanía']
+      details: ['Proyectos Solares', 'Eólicos', 'Minería Responsable', 'Concesiones']
+    },
+    {
+      title: 'Banca & Valores',
+      desc: 'Expertos en regulaciones monetarias, emisiones en mercado de valores y financiamiento sindicado.',
+      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000',
+      details: ['LDFT', 'Fideicomisos', 'Préstamos Sindicados', 'Fintech']
+    },
+    {
+      title: 'Real Estate & Turismo',
+      desc: 'Desarrollo de proyectos bajo CONFOTUR, gestión de títulos y estructuras de inversión inmobiliaria.',
+      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000',
+      details: ['Punta Cana Desk', 'Urbanismo', 'CONFOTUR', 'Administración de Condominios']
     },
     {
       title: 'Litigio & Arbitraje',
-      desc: 'Representación de alto impacto en resoluciones de disputas civiles, comerciales y procesos de arbitraje internacional.',
-      image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1000',
-      details: ['Arbitraje de Inversión', 'Litigio Civil', 'Derecho Constitucional', 'Cobros Estratégicos']
+      desc: 'Resolución de conflictos de alto impacto y arbitraje comercial internacional con enfoque preventivo.',
+      image: 'https://images.unsplash.com/photo-1589829124239-160dd894af80?auto=format&fit=crop&q=80&w=1000',
+      details: ['Arbitraje CCI', 'Civil & Comercial', 'Laboral Estratégico', 'Penal Económico']
     },
     {
-      title: 'Banca & Finanzas',
-      desc: 'Asesoría a instituciones financieras en regulaciones monetarias, préstamos sindicados y mercado de valores.',
-      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000',
-      details: ['Financiamiento de Proyectos', 'Cumplimiento LDFT', 'Mercado de Capitales', 'Derivados']
-    },
-    {
-      title: 'Inmobiliario & Turismo',
-      desc: 'Desarrollo de proyectos turísticos bajo regímenes especiales (CONFOTUR), inversiones de lujo y urbanismo.',
-      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000',
-      details: ['Gestión de Tierras', 'Inversión Extranjera', 'Hospitality', 'Fideicomiso Inmobiliario']
-    },
-    {
-      title: 'Tecnología & Propiedad Intelectual',
-      desc: 'Protección de activos intangibles, registro de patentes, marcas y asesoría en marcos legales de economía digital.',
+      title: 'Tecnología & IP',
+      desc: 'Propiedad intelectual, protección de datos y marcos legales para la economía digital y comercio electrónico.',
       image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000',
-      details: ['Marcas y Patentes', 'Ciberseguridad', 'Protección de Datos', 'E-commerce']
+      details: ['Registro de Marcas', 'Patentes', 'Ciberseguridad', 'Derecho al Olvido']
+    },
+    {
+      title: 'Derecho Marítimo',
+      desc: 'Logística portuaria, seguros de carga y regulaciones de transporte marítimo internacional.',
+      image: 'https://images.unsplash.com/photo-1494412574743-019582732134?auto=format&fit=crop&q=80&w=1000',
+      details: ['Registros de Buques', 'Incidentes Marítimos', 'Seguros', 'Logística']
+    },
+    {
+      title: 'Comercio Exterior',
+      desc: 'Asesoría en tratados internacionales, aduanas y arbitraje de inversión extranjera.',
+      image: 'https://images.unsplash.com/photo-1507537362145-9f5b4008cdd2?auto=format&fit=crop&q=80&w=1000',
+      details: ['Aduanas', 'Tratados de Libre Comercio', 'Zonas Francas', 'Incentivos']
+    },
+    {
+      title: 'Derecho Aeronáutico',
+      desc: 'Regulaciones de aviación civil, arrendamiento de aeronaves y gestión de permisos aéreos.',
+      image: 'https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&q=80&w=1000',
+      details: ['Certificados de Explotador', 'Matriculación', 'Leasing', 'Pasivos Aéreos']
+    },
+    {
+      title: 'Tributario & Fiscal',
+      desc: 'Estructuración fiscal eficiente, defensa ante la administración tributaria y paraísos fiscales.',
+      image: 'https://images.unsplash.com/photo-1554224155-169641357599?auto=format&fit=crop&q=80&w=1000',
+      details: ['Planificación Fiscal', 'Precios de Transferencia', 'Litigio Tributario', 'ITBIS']
+    },
+    {
+      title: 'Derecho de Familia',
+      desc: 'Gestión de patrimonios familiares complejos, sucesiones y protocolos de empresas familiares.',
+      image: 'https://images.unsplash.com/photo-1491438590914-bc09fca97c21?auto=format&fit=crop&q=80&w=1000',
+      details: ['Empresas Familiares', 'Sucesiones', 'Divorcio Express', 'Fideicomisos Familiares']
+    },
+    {
+      title: 'Global Logistics',
+      desc: 'Blindaje legal para la cadena de suministro, zonas francas y regímenes aduaneros especiales.',
+      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1000',
+      details: ['Zonas Francas', 'Derecho Aduanero', 'Supply Chain', 'Logística 4.0']
+    },
+    {
+      title: 'Cumplimiento & Ética',
+      desc: 'Implementación de programas de integridad corporativa y prevención de lavado de activos.',
+      image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1000',
+      details: ['ISO 37001', 'SARLAFT', 'Due Diligence Ético', 'Whistleblowing']
     }
   ];
 
@@ -412,6 +454,62 @@ export default function App() {
                 <h5 className="text-2xl font-display font-bold leading-tight group-hover:text-latham-red transition-colors mb-10">{insight.title}</h5>
                 <ArrowRight className="w-8 h-8 opacity-20 group-hover:opacity-100 group-hover:translate-x-4 transition-all" />
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Methodology Section */}
+      <section className="py-24 md:py-40 bg-white">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="max-w-3xl mb-24">
+            <span className="text-latham-red text-[13px] font-extrabold uppercase tracking-[0.5em]">Operativa de Élite</span>
+            <h3 className="text-5xl md:text-7xl font-display font-extrabold tracking-tighter text-latham-navy mt-8">Nuestra Metodología de Intervención.</h3>
+          </div>
+          
+          <div className="grid md:grid-cols-4 gap-px bg-latham-grey-mid border border-latham-grey-mid">
+            {[
+              { step: '01', title: 'Diagnóstico Situacional', desc: 'Realizamos una inmersión profunda en la realidad corporativa del cliente para identificar riesgos latentes y oportunidades estructurales.' },
+              { step: '02', title: 'Ingeniería Táctica', desc: 'Diseñamos arquitecturas legales personalizadas que blindan la operación y optimizan la eficiencia transaccional.' },
+              { step: '03', title: 'Ejecución de Alto Impacto', desc: 'Desplegamos nuestras capacidades procesales y negociadoras para alcanzar los objetivos en los plazos más competitivos.' },
+              { step: '04', title: 'Monitoreo de Blindaje', desc: 'Establecemos sistemas de vigilancia legal continua para asegurar la sostenibilidad de los resultados a largo plazo.' }
+            ].map((m, i) => (
+              <div key={i} className="bg-white p-12 space-y-8 hover:bg-latham-red group transition-all duration-500">
+                <span className="text-6xl font-display font-extrabold text-slate-100 group-hover:text-white/20 transition-colors">{m.step}</span>
+                <h4 className="text-xl font-display font-bold text-latham-navy group-hover:text-white transition-colors">{m.title}</h4>
+                <p className="text-slate-500 text-sm leading-relaxed group-hover:text-white/80 transition-colors font-medium">{m.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 md:py-40 bg-latham-grey-light border-y border-latham-grey-mid">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="text-center mb-20">
+            <span className="text-latham-red text-[13px] font-extrabold uppercase tracking-[0.5em]">Consultas Frecuentes</span>
+            <h3 className="text-5xl md:text-6xl font-display font-extrabold tracking-tighter text-latham-navy mt-6 text-balance">Respuestas a Desafíos Complejos.</h3>
+          </div>
+          
+          <div className="max-w-4xl mx-auto space-y-6">
+            {[
+              { q: '¿Cómo garantizan la confidencialidad en casos transnacionales?', a: 'Operamos bajo estándares ISO 27001 de seguridad de la información y protocolos de privilegio abogado-cliente reforzados mediante encriptación de grado militar en todas nuestras comunicaciones.' },
+              { q: '¿Cuál es el tiempo de respuesta ante una contingencia legal crítica?', a: 'Nuestro "Punta Cana Desk" y nuestra sede en Santo Domingo garantizan una respuesta inicial en menos de 2 horas para situaciones que comprometan la continuidad operativa del negocio.' },
+              { q: '¿Ofrecen asesoría en regímenes de incentivos fiscales electrónicos?', a: 'Sí, somos pioneros en la estructuración de empresas bajo leyes de fomento tecnológico y regímenes de zonas francas especiales para la economía digital.' },
+              { q: '¿Tienen alianzas internacionales para gestiones fuera de RD?', a: 'Contamos con una red de firmas Grade-A en Nueva York, Londres, Madrid y Ciudad de Panamá, permitiéndonos actuar con la misma eficacia en múltiples jurisdicciones.' }
+            ].map((faq, idx) => (
+              <details key={idx} className="group bg-white border border-latham-grey-mid p-8 cursor-pointer hover:border-latham-red transition-all">
+                <summary className="flex justify-between items-center list-none">
+                  <span className="font-display font-bold text-xl text-latham-navy group-hover:text-latham-red transition-colors pr-8">{faq.q}</span>
+                  <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center group-open:rotate-180 transition-transform">
+                    <ChevronRight className="w-4 h-4 text-latham-navy" />
+                  </div>
+                </summary>
+                <div className="mt-8 pt-8 border-t border-slate-100 animate-in fade-in slide-in-from-top-4">
+                  <p className="text-slate-600 leading-relaxed font-medium">{faq.a}</p>
+                </div>
+              </details>
             ))}
           </div>
         </div>
