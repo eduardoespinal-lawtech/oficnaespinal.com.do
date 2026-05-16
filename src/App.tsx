@@ -39,82 +39,39 @@ export default function App() {
 
   const practices = [
     {
-      title: 'Corporativo & M&A',
-      desc: 'Fusiones, adquisiciones y reestructuraciones societarias de alta complejidad con enfoque en optimización fiscal.',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000',
-      details: ['Gobierno Corporativo', 'Joint Ventures', 'Capital de Riesgo', 'Inversión Extranjera']
+      title: 'Derecho de Propiedad y Tierras',
+      desc: 'Expertos en la jurisdicción inmobiliaria dominicana. Gestionamos procesos complejos de regularización y defensa de derechos registrados.',
+      details: ['Saneamiento Inmobiliario', 'Deslindes y Subdivisiones', 'Litis sobre Derechos Registrados', 'Determinación de Herederos', 'Transferencias de Títulos']
     },
     {
-      title: 'Energía & Minas',
-      desc: 'Asesoría en renovables, hidrocarburos y minería. Gestión de permisos y marcos regulatorios complejos.',
-      image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1000',
-      details: ['Proyectos Solares', 'Eólicos', 'Minería Responsable', 'Concesiones']
+      title: 'Derecho Civil y de Familia',
+      desc: 'Soluciones legales para asuntos personales y patrimoniales con enfoque humano y eficacia procesal.',
+      details: ['Divorcios y Separación de Bienes', 'Sucesiones y Particiones', 'Redacción de Contratos Civiles', 'Responsabilidad Civil', 'Procesos de Guarda y Custodia']
     },
     {
-      title: 'Banca & Valores',
-      desc: 'Expertos en regulaciones monetarias, emisiones en mercado de valores y financiamiento sindicado.',
-      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000',
-      details: ['LDFT', 'Fideicomisos', 'Préstamos Sindicados', 'Fintech']
+      title: 'Derecho Laboral',
+      desc: 'Asesoría estratégica tanto para empleadores como para trabajadores, garantizando el cumplimiento normativo.',
+      details: ['Asesoría Empresarial Preventiva', 'Defensa en Demandas por Despido', 'Cálculos de Prestaciones', 'Auditoría de Contratos Laborales', 'Negociación de Pactos Colectivos']
     },
     {
-      title: 'Real Estate & Turismo',
-      desc: 'Desarrollo de proyectos bajo CONFOTUR, gestión de títulos y estructuras de inversión inmobiliaria.',
-      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000',
-      details: ['Punta Cana Desk', 'Urbanismo', 'CONFOTUR', 'Administración de Condominios']
+      title: 'Adm. y Constitucional',
+      desc: 'Defensa frente a las actuaciones del Estado y protección de derechos fundamentales ante tribunales administrativos.',
+      details: ['Acciones de Amparo', 'Recursos Jerárquicos', 'Recursos Contenciosos-Administrativos', 'Responsabilidad del Estado', 'Nulidad de Actos Administrativos']
     },
     {
-      title: 'Litigio & Arbitraje',
-      desc: 'Resolución de conflictos de alto impacto y arbitraje comercial internacional con enfoque preventivo.',
-      image: 'https://images.unsplash.com/photo-1589829124239-160dd894af80?auto=format&fit=crop&q=80&w=1000',
-      details: ['Arbitraje CCI', 'Civil & Comercial', 'Laboral Estratégico', 'Penal Económico']
+      title: 'Gestión Migratoria',
+      desc: 'Tramitación integral para extranjeros y dominicanos en el exterior ante la Dirección General de Migración.',
+      details: ['Residencias por Inversión', 'Visas de Negocios y Trabajo', 'Naturalización y Ciudadanía', 'Permisos de Salida de Menores', 'Regularización de Estatus']
     },
     {
-      title: 'Tecnología & IP',
-      desc: 'Propiedad intelectual, protección de datos y marcos legales para la economía digital y comercio electrónico.',
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000',
-      details: ['Registro de Marcas', 'Patentes', 'Ciberseguridad', 'Derecho al Olvido']
+      title: 'Propiedad Industrial',
+      desc: 'Protección de los activos intangibles de su empresa o marca personal en la ONAPI.',
+      details: ['Registro de Marcas y Lemas', 'Nombres Comerciales', 'Diseños Industriales', 'Oposiciones y Cancelaciones', 'Defensa contra Falsificaciones']
     },
     {
-      title: 'Derecho Marítimo',
-      desc: 'Logística portuaria, seguros de carga y regulaciones de transporte marítimo internacional.',
-      image: 'https://images.unsplash.com/photo-1494412574743-019582732134?auto=format&fit=crop&q=80&w=1000',
-      details: ['Registros de Buques', 'Incidentes Marítimos', 'Seguros', 'Logística']
-    },
-    {
-      title: 'Comercio Exterior',
-      desc: 'Asesoría en tratados internacionales, aduanas y arbitraje de inversión extranjera.',
-      image: 'https://images.unsplash.com/photo-1507537362145-9f5b4008cdd2?auto=format&fit=crop&q=80&w=1000',
-      details: ['Aduanas', 'Tratados de Libre Comercio', 'Zonas Francas', 'Incentivos']
-    },
-    {
-      title: 'Derecho Aeronáutico',
-      desc: 'Regulaciones de aviación civil, arrendamiento de aeronaves y gestión de permisos aéreos.',
-      image: 'https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&q=80&w=1000',
-      details: ['Certificados de Explotador', 'Matriculación', 'Leasing', 'Pasivos Aéreos']
-    },
-    {
-      title: 'Tributario & Fiscal',
-      desc: 'Estructuración fiscal eficiente, defensa ante la administración tributaria y paraísos fiscales.',
-      image: 'https://images.unsplash.com/photo-1554224155-169641357599?auto=format&fit=crop&q=80&w=1000',
-      details: ['Planificación Fiscal', 'Precios de Transferencia', 'Litigio Tributario', 'ITBIS']
-    },
-    {
-      title: 'Derecho de Familia',
-      desc: 'Gestión de patrimonios familiares complejos, sucesiones y protocolos de empresas familiares.',
-      image: 'https://images.unsplash.com/photo-1491438590914-bc09fca97c21?auto=format&fit=crop&q=80&w=1000',
-      details: ['Empresas Familiares', 'Sucesiones', 'Divorcio Express', 'Fideicomisos Familiares']
-    },
-    {
-      title: 'Global Logistics',
-      desc: 'Blindaje legal para la cadena de suministro, zonas francas y regímenes aduaneros especiales.',
-      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1000',
-      details: ['Zonas Francas', 'Derecho Aduanero', 'Supply Chain', 'Logística 4.0']
-    },
-    {
-      title: 'Cumplimiento & Ética',
-      desc: 'Implementación de programas de integridad corporativa y prevención de lavado de activos.',
-      image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1000',
-      details: ['ISO 37001', 'SARLAFT', 'Due Diligence Ético', 'Whistleblowing']
+      title: 'Asesoría Corporativa',
+      desc: 'Acompañamiento legal para el crecimiento y seguridad jurídica de su modelo de negocio.',
+      details: ['Constitución de Sociedades (SRL, SA)', 'Cumplimiento Normativo (Compliance)', 'Transformación y Fusión de Empresas', 'Contratos Comerciales Internacionales', 'Gobernanza Corporativa']
     }
   ];
 
@@ -139,10 +96,10 @@ export default function App() {
       <nav className={`sticky top-0 z-50 bg-white transition-all duration-500 ${scrolled ? 'shadow-2xl py-3' : 'py-7'} border-b border-latham-grey-mid`}>
         <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
           <div className="flex flex-col">
-            <h1 className="text-base sm:text-xl md:text-3xl font-display font-extrabold tracking-tighter leading-none flex items-center gap-1 px-1">
+            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-display font-extrabold tracking-tighter leading-none flex items-center gap-1 px-1">
               ESPINAL, ALMONTE <span className="text-latham-red">&</span> RICTH
             </h1>
-            <p className="text-[6px] xs:text-[7px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.4em] text-slate-400 font-bold mt-2">Inteligencia Jurídica • Consultores de Élite</p>
+            <p className="text-[7px] xs:text-[8px] md:text-[10px] uppercase tracking-[0.15em] xs:tracking-[0.2em] md:tracking-[0.4em] text-slate-400 font-bold mt-1.5 xs:mt-2">Propiedad • Civil • Laboral • Migración</p>
           </div>
           
           <div className="hidden lg:flex items-center gap-12 text-[11px] font-bold uppercase tracking-[0.2em]">
@@ -165,15 +122,41 @@ export default function App() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-white pt-32 px-10 lg:hidden"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-[60] bg-white flex flex-col p-10 lg:hidden"
           >
-            <div className="flex flex-col gap-8 text-2xl font-display font-bold uppercase tracking-widest text-latham-navy">
+            <div className="flex justify-between items-center mb-16">
+              <h1 className="text-xl font-display font-extrabold tracking-tighter">
+                ESPINAL <span className="text-latham-red">&</span> RICTH
+              </h1>
+              <button onClick={() => setIsMenuOpen(false)} className="p-2 border border-slate-200">
+                <X className="w-8 h-8 text-latham-navy" />
+              </button>
+            </div>
+
+            <div className="flex flex-col gap-8 text-3xl font-display font-extrabold uppercase tracking-tight text-latham-navy mb-auto">
               {navLinks.map((link) => (
-                <a key={link.name} href={link.href} onClick={() => setIsMenuOpen(false)}>{link.name}</a>
+                <a key={link.name} href={link.href} onClick={() => setIsMenuOpen(false)} className="hover:text-latham-red">
+                  {link.name}
+                </a>
               ))}
+            </div>
+
+            <div className="pt-10 border-t border-slate-100 space-y-8">
+              <div className="space-y-2">
+                <span className="text-[10px] uppercase font-black text-latham-red tracking-widest block">Emergencia Legal</span>
+                <p className="text-2xl font-display font-bold">+1 829.442.4222</p>
+              </div>
+              <a 
+                href="#contacto" 
+                onClick={() => setIsMenuOpen(false)}
+                className="block w-full py-6 bg-latham-navy text-white text-center font-bold uppercase tracking-widest text-sm"
+              >
+                Solicitar Consulta
+              </a>
             </div>
           </motion.div>
         )}
@@ -202,14 +185,14 @@ export default function App() {
               <span className="text-latham-red text-[12px] font-bold uppercase tracking-[0.5em]">Advantaged Strategic Thinking</span>
             </div>
             
-            <h2 className="text-6xl md:text-[95px] font-display font-extrabold leading-[0.9] text-white tracking-tighter">
+            <h2 className="text-4xl xs:text-5xl md:text-[95px] font-display font-extrabold leading-[1] md:leading-[0.9] text-white tracking-tighter">
               Defendemos Su <br />
               <span className="italic font-light text-white/50">Visión Corporativa</span> <br />
               Con Rigor Global.
             </h2>
             
-            <p className="text-xl md:text-2xl text-slate-300 font-light leading-relaxed max-w-2xl border-l-2 border-latham-red/40 pl-10">
-              Lideramos el mercado legal en el Caribe mediante la integración de inteligencia procesal, análisis de riesgo y un despliegue táctico sin precedentes.
+            <p className="text-lg md:text-2xl text-slate-300 font-light leading-relaxed max-w-2xl border-l-2 border-latham-red/40 pl-6 md:pl-10">
+              Lideramos el mercado legal en el Caribe mediante inteligencia procesal y un despliegue táctico sin precedentes.
             </p>
 
             <div className="flex flex-wrap gap-8 pt-8">
@@ -302,9 +285,9 @@ export default function App() {
             <div className="lg:col-span-2 grid md:grid-cols-2 gap-12 md:gap-20">
               {[
                 { title: 'Análisis Predictivo', desc: 'Evaluamos escenarios antes de que ocurran, permitiendo a nuestros clientes tomar decisiones desde una posición de fuerza.' },
-                { title: 'Ética Absoluta', desc: 'Cada paso que damos sigue los más altos estándares de cumplimiento internacional (ISO 37001).' },
+                { title: 'Ética Absoluta', desc: 'Cada paso que damos sigue los más altos estándares de cumplimiento y transparencia institucional.' },
                 { title: 'Velocidad Táctica', desc: 'En un mundo globalizado, el tiempo es capital. Respondemos con la agilidad que los negocios modernos exigen.' },
-                { title: 'Red Global', desc: 'Nuestra presencia en los principales foros internacionales garantiza un blindaje sin fronteras para sus activos.' }
+                { title: 'Presencia Estratégica', desc: 'Nuestra ubicación en el centro financiero garantiza un blindaje cercano y oportuno para sus activos.' }
               ].map((val, idx) => (
                 <div key={idx} className="space-y-6 group">
                   <div className="flex items-center gap-6">
@@ -383,31 +366,32 @@ export default function App() {
             <div className="w-32 h-[3px] bg-latham-red mx-auto"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
             {practices.map((p, idx) => (
               <motion.div 
-                whileHover={{ y: -15 }}
+                whileHover={{ y: -10 }}
                 key={idx} 
-                className="bg-white group overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 relative"
+                className="bg-white group p-7 md:p-10 border border-slate-200 hover:border-latham-red hover:shadow-2xl transition-all duration-500 relative flex flex-col justify-between"
               >
-                <div className="h-64 overflow-hidden relative">
-                  <img src={p.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100" alt={p.title} />
-                  <div className="absolute inset-0 bg-latham-navy/30 group-hover:bg-transparent transition-all"></div>
-                </div>
-                <div className="p-12 space-y-6">
-                  <h4 className="text-2xl font-display font-bold text-latham-navy group-hover:text-latham-red transition-colors">{p.title}</h4>
-                  <p className="text-sm text-slate-500 leading-relaxed font-medium">
+                <div>
+                  <div className="w-10 h-1 md:w-12 md:h-1.5 bg-latham-red mb-8 md:mb-10 group-hover:w-20 md:group-hover:w-24 transition-all duration-500"></div>
+                  <h4 className="text-xl md:text-2xl font-display font-bold text-latham-navy mb-4 md:mb-6 group-hover:text-latham-red transition-colors">{p.title}</h4>
+                  <p className="text-sm text-slate-500 leading-relaxed font-medium mb-8 md:mb-10 opacity-80 group-hover:opacity-100 transition-opacity">
                     {p.desc}
                   </p>
-                  <ul className="grid grid-cols-2 gap-y-3 pt-4 border-t border-slate-100">
-                    {p.details.map((detail, i) => (
-                      <li key={i} className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest text-slate-400">
-                        <div className="w-1 h-1 bg-latham-red"></div> {detail}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex justify-end pt-6">
-                    <ArrowRight className="w-6 h-6 text-latham-navy group-hover:translate-x-3 transition-transform cursor-pointer" />
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="flex flex-col gap-3">
+                    <span className="text-[10px] font-extrabold uppercase tracking-[0.3em] text-slate-300 group-hover:text-latham-red/50 transition-colors">Competencias Clave</span>
+                    <div className="flex flex-wrap gap-x-6 gap-y-3">
+                      {p.details.map((detail, i) => (
+                        <div key={i} className="flex items-center gap-2.5">
+                          <div className="w-1.5 h-1.5 rounded-full bg-slate-200 group-hover:bg-latham-red transition-colors"></div>
+                          <span className="text-[10px] font-bold uppercase tracking-tight text-slate-400 group-hover:text-latham-navy transition-colors">{detail}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -463,7 +447,7 @@ export default function App() {
       <section className="py-24 md:py-40 bg-white">
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="max-w-3xl mb-24">
-            <span className="text-latham-red text-[13px] font-extrabold uppercase tracking-[0.5em]">Operativa de Élite</span>
+            <span className="text-latham-red text-[13px] font-extrabold uppercase tracking-[0.5em]">Metodología de Trabajo</span>
             <h3 className="text-5xl md:text-7xl font-display font-extrabold tracking-tighter text-latham-navy mt-8">Nuestra Metodología de Intervención.</h3>
           </div>
           
@@ -494,10 +478,10 @@ export default function App() {
           
           <div className="max-w-4xl mx-auto space-y-6">
             {[
-              { q: '¿Cómo garantizan la confidencialidad en casos transnacionales?', a: 'Operamos bajo estándares ISO 27001 de seguridad de la información y protocolos de privilegio abogado-cliente reforzados mediante encriptación de grado militar en todas nuestras comunicaciones.' },
-              { q: '¿Cuál es el tiempo de respuesta ante una contingencia legal crítica?', a: 'Nuestro "Punta Cana Desk" y nuestra sede en Santo Domingo garantizan una respuesta inicial en menos de 2 horas para situaciones que comprometan la continuidad operativa del negocio.' },
-              { q: '¿Ofrecen asesoría en regímenes de incentivos fiscales electrónicos?', a: 'Sí, somos pioneros en la estructuración de empresas bajo leyes de fomento tecnológico y regímenes de zonas francas especiales para la economía digital.' },
-              { q: '¿Tienen alianzas internacionales para gestiones fuera de RD?', a: 'Contamos con una red de firmas Grade-A en Nueva York, Londres, Madrid y Ciudad de Panamá, permitiéndonos actuar con la misma eficacia en múltiples jurisdicciones.' }
+              { q: '¿Cómo garantizan la confidencialidad en casos complejos?', a: 'Operamos bajo estrictos protocolos de privilegio abogado-cliente reforzados mediante sistemas de seguridad digital avanzada en todas nuestras comunicaciones.' },
+              { q: '¿Cuál es el tiempo de respuesta ante una contingencia legal crítica?', a: 'Nuestra sede en Santo Domingo garantiza una respuesta inicial inmediata para situaciones que comprometan la continuidad operativa del negocio.' },
+              { q: '¿Ofrecer asesoría en regímenes de incentivos fiscales electrónicos?', a: 'Sí, somos expertos en la estructuración de empresas bajo leyes de fomento tecnológico y regímenes de zonas francas para la economía digital.' },
+              { q: '¿Tienen alianzas internacionales para gestiones fuera de RD?', a: 'Contamos con una red de corresponsales estratégicos que nos permiten gestionar asuntos en múltiples jurisdicciones con la misma eficacia.' }
             ].map((faq, idx) => (
               <details key={idx} className="group bg-white border border-latham-grey-mid p-8 cursor-pointer hover:border-latham-red transition-all">
                 <summary className="flex justify-between items-center list-none">
@@ -544,9 +528,9 @@ export default function App() {
           </div>
         </div>
 
-        <div className="lg:col-span-7 bg-latham-grey-light p-12 md:p-24 shadow-[60px_60px_0px_#f5f5f5] h-full">
+        <div className="lg:col-span-7 bg-latham-grey-light p-8 md:p-24 shadow-2xl lg:shadow-[60px_60px_0px_#f5f5f5] h-full">
           <form 
-            className="space-y-12" 
+            className="space-y-10 md:space-y-12" 
             onSubmit={async (e) => {
               e.preventDefault();
               const form = e.currentTarget;
@@ -583,33 +567,33 @@ export default function App() {
               } finally {
                 if (submitBtn) {
                   submitBtn.disabled = false;
-                  submitBtn.innerText = 'SOLICITAR CONSULTA ESTRATÉGICA';
+                  submitBtn.innerText = 'SOLICITAR CONSULTA';
                 }
               }
             }}
           >
             <div className="space-y-3">
               <label className="text-[11px] font-extrabold uppercase tracking-widest text-slate-500 flex items-center gap-2">
-                <div className="w-1 h-3 bg-latham-red"></div> Identidad Institucional
+                <div className="w-1 h-3 bg-latham-red"></div> Tu Nombre Completo
               </label>
-              <input name="name" type="text" required placeholder="Nombre Completo / Razón Social" className="w-full border-b-2 border-latham-grey-mid py-5 focus:border-latham-navy focus:outline-none transition-all bg-transparent font-display font-bold text-xl uppercase tracking-tighter" />
+              <input name="name" type="text" required placeholder="Escribe tu nombre aquí" className="w-full border-b-2 border-latham-grey-mid py-5 focus:border-latham-navy focus:outline-none transition-all bg-transparent font-display font-bold text-xl uppercase tracking-tighter" />
             </div>
             <div className="space-y-3">
               <label className="text-[11px] font-extrabold uppercase tracking-widest text-slate-500 flex items-center gap-2">
-                <div className="w-1 h-3 bg-latham-red"></div> Vínculo de Contacto
+                <div className="w-1 h-3 bg-latham-red"></div> Tu Correo Electrónico
               </label>
-              <input name="email" type="email" required placeholder="Email Corporativo" className="w-full border-b-2 border-latham-grey-mid py-5 focus:border-latham-navy focus:outline-none transition-all bg-transparent font-display font-bold text-xl uppercase tracking-tighter" />
+              <input name="email" type="email" required placeholder="ejemplo@correo.com" className="w-full border-b-2 border-latham-grey-mid py-5 focus:border-latham-navy focus:outline-none transition-all bg-transparent font-display font-bold text-xl uppercase tracking-tighter" />
             </div>
             <div className="space-y-3">
               <label className="text-[11px] font-extrabold uppercase tracking-widest text-slate-500 flex items-center gap-2">
-                <div className="w-1 h-3 bg-latham-red"></div> Materia del Caso
+                <div className="w-1 h-3 bg-latham-red"></div> ¿Cómo podemos ayudarte?
               </label>
-              <textarea name="message" required rows={4} placeholder="Describa la naturaleza de su requerimiento legal..." className="w-full border-b-2 border-latham-grey-mid py-5 focus:border-latham-navy focus:outline-none transition-all bg-transparent font-medium text-lg resize-none"></textarea>
+              <textarea name="message" required rows={4} placeholder="Cuéntanos brevemente tu caso o situación legal..." className="w-full border-b-2 border-latham-grey-mid py-5 focus:border-latham-navy focus:outline-none transition-all bg-transparent font-medium text-lg resize-none"></textarea>
             </div>
             <button type="submit" className="latham-button w-full py-8 text-sm group flex items-center justify-center gap-6 shadow-2xl disabled:opacity-50">
-              SOLICITAR CONSULTA ESTRATÉGICA <ArrowRight className="w-5 h-5 group-hover:translate-x-3 transition-transform" />
+              SOLICITAR CONSULTA <ArrowRight className="w-5 h-5 group-hover:translate-x-3 transition-transform" />
             </button>
-            <p className="text-[9px] uppercase font-bold text-slate-400 text-center tracking-[0.4em] mt-8">CUMPLIMIENTO ISO 27001 | CONFIDENCIALIDAD TOTAL GARANTIZADA</p>
+            <p className="text-[9px] uppercase font-bold text-slate-400 text-center tracking-[0.4em] mt-8">CONFIDENCIALIDAD TOTAL GARANTIZADA | SEGURIDAD JURÍDICA</p>
           </form>
         </div>
       </section>
@@ -639,15 +623,11 @@ export default function App() {
             </div>
             
             <div className="space-y-10">
-              <h4 className="text-[12px] font-extrabold uppercase tracking-widest text-latham-red">Oficinas Globales</h4>
+              <h4 className="text-[12px] font-extrabold uppercase tracking-widest text-latham-red">Oficina Principal</h4>
               <div className="space-y-6">
                 <div>
                   <p className="font-bold text-sm">Santo Domingo - HQ</p>
                   <p className="font-display font-medium text-lg text-slate-500 mt-2">Avenida Winston Churchill 103, 01030, Santo Domingo.</p>
-                </div>
-                <div>
-                  <p className="font-bold text-sm">Punta Cana - Desk</p>
-                  <p className="text-xs text-slate-500 mt-2 font-medium">Cap Cana, Marina Business Center.</p>
                 </div>
               </div>
             </div>
@@ -665,12 +645,12 @@ export default function App() {
 
           <div className="pt-16 flex flex-col md:flex-row justify-between items-center gap-10">
             <div className="flex flex-col gap-2">
-              <p className="text-[11px] uppercase font-bold text-slate-500 tracking-[0.4em]">© 2024 Espinal, Almonte & Ricth. Consultores Legales de Élite.</p>
+              <p className="text-[11px] uppercase font-bold text-slate-500 tracking-[0.4em]">© 2024 Espinal, Almonte & Ricth. Oficina de Abogados.</p>
               <p className="text-[9px] uppercase font-bold text-slate-400/40 tracking-[0.2em]">Advertencia: Este sitio es solo informativo y no constituye una relación abogado-cliente hasta mediar contrato.</p>
             </div>
             <div className="flex gap-12 text-[10px] uppercase font-bold tracking-[0.2em]">
               <span className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-green-500"></div> System Status: Operational</span>
-              <span className="text-latham-red">Inteligencia Juridica • SDQ • 2024</span>
+              <span className="text-latham-red">Propiedad • Civil • Laboral • Migración</span>
             </div>
           </div>
         </div>
