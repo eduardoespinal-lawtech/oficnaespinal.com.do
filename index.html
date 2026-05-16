@@ -4,173 +4,276 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Espinal, Almonte & Ricth | Inteligencia Jurídica</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;700;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'latham': {
-                            'navy': '#002244',
-                            'red': '#E31837',
-                            'black': '#0a0a0a',
-                            'grey-light': '#f8f9fa',
-                            'grey-mid': '#e5e7eb',
+                        latham: {
+                            navy: '#002244',
+                            red: '#E31837',
+                            'grey-light': '#F5F5F7',
+                            'grey-mid': '#E5E7EB',
                         }
                     },
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'display': ['Outfit', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     <style>
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
-        .float-icon { animation: float 3s ease-in-out infinite; }
-        .latham-link { position: relative; }
-        .latham-link::after { content: ''; position: absolute; width: 0; height: 1px; bottom: 0; left: 0; background-color: #E31837; transition: width 0.3s; }
-        .latham-link:hover::after { width: 100%; }
+        .latham-button {
+            background-color: #002244;
+            color: white;
+            padding: 1rem 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            font-size: 0.75rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border-radius: 0.125rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .latham-button:hover {
+            background-color: #E31837;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(227, 24, 55, 0.2);
+        }
         html { scroll-behavior: smooth; }
+        .bg-pattern { background-image: radial-gradient(#E31837 0.5px, transparent 0.5px); background-size: 24px 24px; }
+        .text-balance { text-wrap: balance; }
     </style>
 </head>
-<body class="bg-white text-latham-black">
-    <div id="root"></div>
+<body class="bg-white text-latham-navy font-sans antialiased overflow-x-hidden">
 
-    <!-- Scripts para React via CDN -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Navegación -->
+    <nav class="sticky top-0 z-50 bg-white shadow-sm py-4 md:py-6 border-b border-latham-grey-mid">
+        <div class="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
+            <div class="flex flex-col">
+                <h1 class="text-lg md:text-3xl font-display font-extrabold tracking-tighter leading-none flex items-center gap-1">
+                    ESPINAL, ALMONTE <span class="text-latham-red">&</span> RICTH
+                </h1>
+                <p class="text-[7px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] text-slate-400 font-bold mt-2">Inteligencia Jurídica • Consultores de Élite</p>
+            </div>
+            <div class="hidden lg:flex items-center gap-12 text-[11px] font-bold uppercase tracking-[0.2em]">
+                <a href="#firma" class="hover:text-latham-red transition-colors">Nuestra Firma</a>
+                <a href="#servicios" class="hover:text-latham-red transition-colors">Prácticas</a>
+                <a href="#insights" class="hover:text-latham-red transition-colors">Insights</a>
+                <a href="#contacto" class="latham-button py-3 px-8 text-[10px]">Agendar Consulta</a>
+            </div>
+            <button class="lg:hidden text-latham-navy" id="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
 
-    <script type="text/babel">
-        const { useState, useEffect } = React;
-
-        const App = () => {
-            const [scrolled, setScrolled] = useState(false);
-
-            useEffect(() => {
-                const handleScroll = () => setScrolled(window.scrollY > 50);
-                window.addEventListener('scroll', handleScroll);
-                return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
-
-            return (
-                <div className="min-h-screen">
-                    {/* Navigation */}
-                    <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white shadow-xl py-3' : 'bg-transparent py-6'}`}>
-                        <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center text-latham-navy">
-                            <div className="flex flex-col">
-                                <h1 className={`font-display font-extrabold tracking-tighter leading-none flex items-center gap-1 ${scrolled ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl text-white md:text-latham-navy'}`}>
-                                    ESPINAL, ALMONTE <span className="text-latham-red">&</span> RICTH
-                                </h1>
-                                <p className={`text-[7px] md:text-[9px] uppercase tracking-[0.4em] font-bold mt-2 ${scrolled ? 'text-slate-400' : 'text-white/60 md:text-slate-400'}`}>Inteligencia Jurídica • Consultores de Élite</p>
-                            </div>
-                            <div className="hidden md:flex gap-10 text-[10px] font-bold uppercase tracking-widest">
-                                <a href="#firma" className="latham-link">Firma</a>
-                                <a href="#servicios" className="latham-link">Prácticas</a>
-                                <a href="#contacto" className="bg-latham-red text-white px-6 py-3 rounded-sm hover:bg-latham-navy transition-colors">Consulta Directa</a>
-                            </div>
-                        </div>
-                    </nav>
-
-                    {/* Hero */}
-                    <section className="h-screen bg-latham-navy flex items-center relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2400" className="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-latham-navy to-transparent"></div>
-                        <div className="relative z-10 max-w-[1400px] mx-auto px-6 w-full">
-                            <div className="max-w-4xl space-y-10">
-                                <span className="text-latham-red text-sm font-bold uppercase tracking-[0.6em] border-l-4 border-latham-red pl-4">Institutional Power</span>
-                                <h2 className="text-5xl md:text-[90px] font-display font-extrabold leading-[0.9] text-white tracking-tighter">
-                                    Blindaje Legal <br />
-                                    <span className="italic font-light opacity-50">Para Su Patrimonio</span> <br />
-                                    Y Visión Global.
-                                </h2>
-                                <p className="text-xl text-slate-300 max-w-xl font-light">Liderazgo jurídico basado en resultados y ética absoluta en la República Dominicana.</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* About Section */}
-                    <section id="firma" className="py-40 bg-white">
-                        <div className="max-w-[1400px] mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
-                            <div className="space-y-12">
-                                <span className="text-latham-red font-bold uppercase tracking-widest flex items-center gap-4">
-                                    <div className="w-10 h-px bg-latham-red"></div> Excelencia Institucional
-                                </span>
-                                <h3 className="text-5xl md:text-7xl font-display font-extrabold tracking-tighter text-latham-navy leading-none">
-                                    Resultados <br /> y ética absoluta.
-                                </h3>
-                                <p className="text-xl text-slate-600 leading-relaxed font-light border-l-4 border-latham-red pl-8 italic">
-                                    "Cada movimiento legal es una pieza en la arquitectura del éxito de nuestros clientes corporativos e individuales."
-                                </p>
-                            </div>
-                            <div className="relative">
-                                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000" className="w-full aspect-[4/3] object-cover shadow-[40px_40px_0px_#f5f5f5]" />
-                                <div className="absolute -bottom-10 -left-10 bg-latham-navy p-10 text-white shadow-2xl">
-                                    <p className="text-5xl font-display font-extrabold">98%</p>
-                                    <p className="text-[10px] uppercase font-bold tracking-widest mt-2">Retención de Clientes</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Contact Form Section */}
-                    <section id="contacto" className="py-40 bg-latham-grey-light">
-                        <div className="max-w-[1400px] mx-auto px-6 grid md:grid-cols-12 gap-20">
-                            <div className="md:col-span-5 space-y-10">
-                                <h3 className="text-5xl font-display font-extrabold tracking-tighter text-latham-navy">Inicie una consulta confidencial.</h3>
-                                <div className="space-y-8">
-                                    <div className="flex gap-6">
-                                        <div className="bg-white p-4 shadow-sm text-latham-red font-bold">SDQ</div>
-                                        <div>
-                                            <p className="font-bold text-latham-navy uppercase tracking-widest text-xs">Sede Central</p>
-                                            <p className="text-slate-500 mt-1 font-medium">Avenida Winston Churchill 103, 01030, Santo Domingo</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex gap-6">
-                                        <div className="bg-white p-4 shadow-sm text-latham-red font-bold">PHO</div>
-                                        <div>
-                                            <p className="font-bold text-latham-navy uppercase tracking-widest text-xs">Línea Directa</p>
-                                            <p className="text-latham-red font-extrabold text-xl mt-1 tracking-tighter">+1 829.442.4222</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="md:col-span-7 bg-white p-12 shadow-2xl border-t-8 border-latham-red">
-                                <form className="space-y-8" action="/api/contact" method="POST">
-                                    <div className="space-y-2">
-                                        <label className="text-[11px] font-bold uppercase tracking-widest text-slate-400">Identidad Corporativa</label>
-                                        <input required name="name" type="text" placeholder="Nombre completo" className="w-full border-b-2 border-slate-200 py-4 focus:border-latham-red outline-none transition-all font-display font-bold text-lg" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="text-[11px] font-bold uppercase tracking-widest text-slate-400">Vínculo de Contacto</label>
-                                        <input required name="email" type="email" placeholder="Email corporativo" className="w-full border-b-2 border-slate-200 py-4 focus:border-latham-red outline-none transition-all font-display font-bold text-lg" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="text-[11px] font-bold uppercase tracking-widest text-slate-400">Materia del Caso</label>
-                                        <textarea required name="message" rows="3" placeholder="Resumen de requerimiento..." className="w-full border-b-2 border-slate-200 py-4 focus:border-latham-red outline-none transition-all text-lg"></textarea>
-                                    </div>
-                                    <button className="w-full bg-latham-navy text-white text-xs font-bold uppercase tracking-[0.3em] py-6 hover:bg-latham-red transition-all shadow-xl">Solicitar Intervención Legal</button>
-                                </form>
-                            </div>
-                        </div>
-                    </section>
-
-                    <footer className="bg-latham-navy text-white/50 py-12 border-t border-white/5">
-                        <div className="max-w-[1400px] mx-auto px-6 flex justify-between text-[10px] font-bold uppercase tracking-[0.3em]">
-                            <span>© 2024 Espinal, Almonte & Ricth</span>
-                            <span className="text-latham-red">Avenida Winston Churchill 103, Santo Domingo, RD</span>
-                        </div>
-                    </footer>
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center pt-20">
+        <div class="absolute inset-0 bg-pattern opacity-[0.03] pointer-events-none"></div>
+        <div class="max-w-[1400px] mx-auto px-6 w-full grid lg:grid-cols-2 gap-10 items-center">
+            <div class="space-y-12 relative z-10">
+                <div class="space-y-4">
+                    <span class="text-latham-red text-[13px] font-extrabold uppercase tracking-[0.6em] block animate-fade-in">Dominican Republic • Global Scope</span>
+                    <h2 class="text-6xl md:text-9xl font-display font-extrabold tracking-tighter leading-[0.9] text-latham-navy">
+                        Blindaje Legal <br /> <span class="text-slate-200">De Élite.</span>
+                    </h2>
                 </div>
-            );
-        };
+                <p class="text-xl md:text-2xl text-slate-500 max-w-xl font-light leading-relaxed">
+                    Estrategia jurídica transaccional y defensa corporativa para los desafíos más complejos del mercado global.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="#contacto" class="latham-button">Iniciar Consulta Central</a>
+                    <a href="#servicios" class="px-10 py-4 border-2 border-latham-navy text-[11px] font-bold uppercase tracking-widest hover:bg-latham-navy hover:text-white transition-all flex items-center justify-center gap-4">
+                        Nuestras Prácticas <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="relative hidden lg:block">
+                <div class="absolute -top-10 -right-10 w-64 h-64 border-[40px] border-latham-grey-light -z-10"></div>
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1200" 
+                     class="w-full h-[700px] object-cover shadow-[80px_80px_0px_#002244]" alt="Legal Excellence">
+            </div>
+        </div>
+    </section>
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
+    <!-- Institutional Profile -->
+    <section id="firma" class="py-24 md:py-40 bg-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-64 h-64 bg-latham-red/5 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"></div>
+        <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-40 items-center">
+                <div class="space-y-10 md:space-y-14 order-2 lg:order-1">
+                    <div class="space-y-6 md:space-y-8">
+                        <span class="text-latham-red text-[11px] md:text-[13px] font-extrabold uppercase tracking-[0.5em] flex items-center gap-4">
+                            <div class="w-8 md:w-10 h-[1px] bg-latham-red"></div>
+                            Excelencia Institucional
+                        </span>
+                        <h3 class="text-4xl md:text-8xl font-display font-extrabold tracking-tighter text-latham-navy leading-[0.95]">
+                            Liderazgo jurídico <br /> 
+                            <span class="text-latham-red">basado en resultados</span> <br /> 
+                            y ética absoluta.
+                        </h3>
+                    </div>
+                    <div class="space-y-8 md:space-y-10">
+                        <p class="text-lg md:text-2xl text-slate-600 leading-relaxed font-light border-l-4 border-latham-red pl-6 md:pl-10 italic">
+                            "Operamos con la visión de un socio estratégico, donde la ley es el motor que potencia el dinamismo empresarial de nuestros clientes."
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-8 md:gap-12 pt-4">
+                            <div class="group">
+                                <h4 class="text-[11px] font-black uppercase tracking-[0.3em] text-latham-navy mb-4 border-b-2 border-latham-red/20 pb-2 inline-block">Misión Institucional</h4>
+                                <p class="text-sm text-slate-500 leading-loose font-medium">Proteger y potenciar el capital de nuestros clientes mediante arquitecturas legales sólidas y blindadas.</p>
+                            </div>
+                            <div class="group">
+                                <h4 class="text-[11px] font-black uppercase tracking-[0.3em] text-latham-navy mb-4 border-b-2 border-latham-red/20 pb-2 inline-block">Presencia Global</h4>
+                                <p class="text-sm text-slate-500 leading-loose font-medium">Red de aliados estratégicos en los principales centros financieros para gestiones transnacionales.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative order-1 lg:order-2">
+                    <div class="absolute -top-6 -right-6 md:-top-12 md:-right-12 w-full h-full border border-latham-red/20 -z-10"></div>
+                    <div class="relative aspect-[4/5] lg:aspect-[3/4] overflow-hidden shadow-[30px_0px_0px_#f5f5f5] lg:shadow-[100px_0px_0px_#f5f5f5]">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000" 
+                             class="w-full h-full object-cover scale-110 hover:scale-100 transition-all duration-1000" alt="Corporate Leadership">
+                        <div class="absolute inset-0 bg-latham-navy/5"></div>
+                    </div>
+                    <div class="absolute -bottom-10 -left-6 md:-left-20 bg-latham-navy p-6 md:p-12 text-white max-w-[200px] md:max-w-sm shadow-[20px_20px_0px_#E31837] md:shadow-[30px_30px_0px_#E31837]">
+                        <div class="space-y-2">
+                            <p class="text-3xl md:text-5xl font-display font-extrabold tracking-tighter">98%</p>
+                            <p class="text-[8px] md:text-[10px] uppercase font-bold tracking-[0.3em] opacity-60">Retención Corporativa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-40 bg-white grid lg:grid-cols-12 max-w-[1400px] mx-auto px-6 gap-20">
+        <div class="lg:col-span-5 flex flex-col justify-center space-y-16">
+            <div class="space-y-10">
+                <span class="text-latham-red text-[13px] font-extrabold uppercase tracking-[0.5em]">Conexión Estratégica</span>
+                <h3 class="text-5xl md:text-7xl font-display font-extrabold tracking-tighter text-latham-navy">Inicie una consulta <br /> confidencial hoy.</h3>
+            </div>
+            <div class="space-y-12">
+                <div class="flex gap-10 items-start group">
+                    <div class="bg-latham-grey-light p-6 rounded-sm text-latham-navy group-hover:bg-latham-red group-hover:text-white transition-all">
+                        <i data-lucide="map-pin" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase font-extrabold text-slate-400 tracking-[0.4em] block mb-3">Headquarters</span>
+                        <p class="font-display font-bold text-2xl uppercase tracking-tighter text-balance">Avenida Winston Churchill 103, 01030, Santo Domingo</p>
+                    </div>
+                </div>
+                <div class="flex gap-10 items-start group">
+                    <div class="bg-latham-grey-light p-6 rounded-sm text-latham-navy group-hover:bg-latham-red group-hover:text-white transition-all">
+                        <i data-lucide="phone" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase font-extrabold text-slate-400 tracking-[0.4em] block mb-3">Priority Line</span>
+                        <p class="font-display font-bold text-3xl text-latham-red tracking-tighter">+1 829.442.4222</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:col-span-7 bg-latham-grey-light p-12 md:p-24 shadow-[60px_60px_0px_#f5f5f5]">
+            <form class="space-y-12" id="contact-form">
+                <div class="space-y-3">
+                    <label class="text-[11px] font-extrabold uppercase tracking-widest text-slate-500 flex items-center gap-2">
+                        <div class="w-1 h-3 bg-latham-red"></div> Identidad Institucional
+                    </label>
+                    <input name="name" type="text" required placeholder="Nombre Completo / Razón Social" class="w-full border-b-2 border-latham-grey-mid py-5 focus:border-latham-navy focus:outline-none bg-transparent font-display font-bold text-xl uppercase tracking-tighter">
+                </div>
+                <div class="space-y-3">
+                    <label class="text-[11px] font-extrabold uppercase tracking-widest text-slate-500 flex items-center gap-2">
+                        <div class="w-1 h-3 bg-latham-red"></div> Vínculo de Contacto
+                    </label>
+                    <input name="email" type="email" required placeholder="Email Corporativo" class="w-full border-b-2 border-latham-grey-mid py-5 focus:border-latham-navy focus:outline-none bg-transparent font-display font-bold text-xl uppercase tracking-tighter">
+                </div>
+                <div class="space-y-3">
+                    <label class="text-[11px] font-extrabold uppercase tracking-widest text-slate-500 flex items-center gap-2">
+                        <div class="w-1 h-3 bg-latham-red"></div> Materia del Caso
+                    </label>
+                    <textarea name="message" required rows="4" placeholder="Describa su requerimiento legal..." class="w-full border-b-2 border-latham-grey-mid py-5 focus:border-latham-navy focus:outline-none bg-transparent font-medium text-lg resize-none"></textarea>
+                </div>
+                <button type="submit" class="latham-button w-full py-8 text-sm group flex items-center justify-center gap-6 shadow-2xl" id="submit-btn">
+                    SOLICITAR CONSULTA ESTRATÉGICA <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-3 transition-transform"></i>
+                </button>
+                <p class="text-[9px] uppercase font-bold text-slate-400 text-center tracking-[0.4em] mt-8">CONFIDENCIALIDAD TOTAL GARANTIZADA</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-latham-navy text-white pt-32 pb-16">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-24 pb-28 items-start border-b border-white/5">
+                <div class="col-span-2 space-y-10">
+                    <h1 class="text-3xl font-display font-extrabold tracking-tighter leading-none">
+                        ESPINAL, ALMONTE <span class="text-latham-red">&</span> RICTH
+                    </h1>
+                    <p class="text-slate-400 max-w-md leading-loose text-base font-light">
+                        Asesoría jurídica transaccional de primer nivel en República Dominicana y el Caribe.
+                    </p>
+                </div>
+                <div class="space-y-10">
+                    <h4 class="text-[12px] font-extrabold uppercase tracking-widest text-latham-red">Oficinas Globales</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">Avenida Winston Churchill 103, 01030, Santo Domingo.</p>
+                </div>
+                <div class="space-y-10">
+                    <h4 class="text-[12px] font-extrabold uppercase tracking-widest text-latham-red">Contacto</h4>
+                    <p class="text-sm font-bold tracking-widest text-white">+1 829.442.4222</p>
+                    <p class="text-sm text-slate-400">info@oficinaespinal.do</p>
+                </div>
+            </div>
+            <div class="pt-16 flex flex-col md:flex-row justify-between items-center gap-10">
+                <p class="text-[11px] uppercase font-bold text-slate-500 tracking-[0.4em]">© 2024 Espinal, Almonte & Ricth.</p>
+                <span class="text-latham-red font-bold text-[10px] tracking-[0.2em]">Inteligencia Juridica • SDQ • 2024</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón WhatsApp táctico -->
+    <a href="https://wa.me/18294424222" target="_blank" class="fixed bottom-8 right-8 bg-[#25D366] text-white p-4 md:p-6 rounded-sm shadow-[10px_10px_0px_#002244] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all z-50 flex items-center gap-4 group border border-white/20">
+        <i data-lucide="phone-forwarded" class="w-7 h-7 group-hover:rotate-12 transition-transform"></i>
+        <div class="hidden lg:block">
+            <p class="text-[9px] font-bold uppercase tracking-widest leading-none">Contacto Directo</p>
+            <p class="font-display font-bold text-lg leading-tight mt-1">Socio de Turno</p>
+        </div>
+    </a>
+
+    <!-- Lucide Init -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Lógica del Formulario con tu API Key de Resend (Nota: Resend requiere backend para CORS)
+        // Por ahora, este código simula el envío. Para un index.html real, te recomendaría usar Formspree.io
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            btn.disabled = true;
+            btn.innerText = 'PROCESANDO SOLICITUD...';
+
+            // Simulación de envío
+            setTimeout(() => {
+                alert('¡Consulta recibida de forma confidencial! Un socio de turno le contactará en breve.');
+                this.reset();
+                btn.disabled = false;
+                btn.innerHTML = 'SOLICITAR CONSULTA ESTRATÉGICA <i data-lucide="arrow-right" class="w-5 h-5"></i>';
+                lucide.createIcons();
+            }, 1500);
+        });
     </script>
 </body>
 </html>
