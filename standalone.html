@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Espinal, Almonte & Ricth | Inteligencia Jurídica</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -31,6 +31,9 @@
                     fontFamily: {
                         'display': ['Inter', 'sans-serif'],
                         'sans': ['Inter', 'sans-serif'],
+                    },
+                    screens: {
+                        'xs': '480px',
                     }
                 }
             }
@@ -84,7 +87,7 @@
     <nav class="sticky top-0 z-50 bg-white transition-all duration-500 border-b border-latham-grey-mid" :class="scrolled ? 'shadow-2xl py-3' : 'py-7'" x-data="{ open: false }">
         <div class="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
             <div class="flex flex-col">
-                <h1 class="text-lg xs:text-xl sm:text-2xl md:text-3xl font-display font-extrabold tracking-tighter leading-none flex items-center gap-1">
+                <h1 class="text-[19px] xs:text-xl sm:text-2xl md:text-3xl font-display font-extrabold tracking-tighter leading-none flex items-center gap-1 whitespace-nowrap">
                     ESPINAL, ALMONTE <span class="text-latham-red">&</span> RICTH
                 </h1>
                 <p class="text-[7px] xs:text-[8px] md:text-[10px] uppercase tracking-[0.15em] xs:tracking-[0.2em] md:tracking-[0.4em] text-slate-400 font-bold mt-1.5 xs:mt-2">Propiedad • Civil • Laboral • Migración</p>
@@ -106,10 +109,10 @@
         <!-- Mobile Menu Overlay -->
         <template x-teleport="body">
             <div x-show="open" 
-                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter="transition ease-out duration-300 transform"
                  x-transition:enter-start="translate-x-full"
                  x-transition:enter-end="translate-x-0"
-                 x-transition:leave="transition ease-in duration-200"
+                 x-transition:leave="transition ease-in duration-200 transform"
                  x-transition:leave-start="translate-x-0"
                  x-transition:leave-end="translate-x-full"
                  class="fixed inset-0 z-[100] bg-white flex flex-col p-10 lg:hidden"
@@ -144,7 +147,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative h-[90vh] flex items-center overflow-hidden bg-latham-navy">
+    <section class="relative h-[90dvh] min-h-[600px] flex items-center overflow-hidden bg-latham-navy">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2400" 
                  class="w-full h-full object-cover opacity-25 mix-blend-luminosity grayscale" alt="Corporate background">
@@ -186,11 +189,11 @@
                             <div class="w-12 md:w-16 h-[1px] bg-latham-red"></div>
                             Excelencia Institucional
                         </span>
-                        <h3 class="text-4xl xs:text-5xl md:text-[110px] font-display font-extrabold tracking-tighter text-latham-navy leading-[0.85]">
-                            LIDERAZGO <br> 
-                            <span class="text-latham-red">JURÍDICO</span> <br> 
-                            TOTAL.
-                        </h3>
+                <h3 class="text-4xl xs:text-5xl md:text-[110px] font-display font-extrabold tracking-tighter text-latham-navy leading-none">
+                    LIDERAZGO <br> 
+                    <span class="text-latham-red">JURÍDICO</span> <br> 
+                    TOTAL.
+                </h3>
                         <p class="text-xl md:text-3xl font-display font-bold text-slate-400 tracking-tight">Basado en resultados y ética absoluta.</p>
                     </div>
 
