@@ -11,6 +11,8 @@
   --color-latham-grey-light: #F5F5F5;
   --color-latham-grey-mid: #E0E0E0;
   --color-latham-black: #111111;
+
+  --breakpoint-xs: 480px;
 }
 
 @layer base {

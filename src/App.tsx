@@ -96,7 +96,7 @@ export default function App() {
       <nav className={`sticky top-0 z-50 bg-white transition-all duration-500 ${scrolled ? 'shadow-2xl py-3' : 'py-7'} border-b border-latham-grey-mid`}>
         <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
           <div className="flex flex-col">
-            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-display font-extrabold tracking-tighter leading-none flex items-center gap-1 px-1">
+            <h1 className="text-[19px] xs:text-xl sm:text-2xl md:text-3xl font-display font-extrabold tracking-tighter leading-none flex items-center gap-1 px-1 whitespace-nowrap">
               ESPINAL, ALMONTE <span className="text-latham-red">&</span> RICTH
             </h1>
             <p className="text-[7px] xs:text-[8px] md:text-[10px] uppercase tracking-[0.15em] xs:tracking-[0.2em] md:tracking-[0.4em] text-slate-400 font-bold mt-1.5 xs:mt-2">Propiedad • Civil • Laboral • Migración</p>
@@ -163,7 +163,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center overflow-hidden bg-latham-navy">
+      <section className="relative h-[90dvh] min-h-[600px] flex items-center overflow-hidden bg-latham-navy">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2400" 
@@ -214,7 +214,7 @@ export default function App() {
                   <div className="w-12 md:w-16 h-[1px] bg-latham-red"></div>
                   Excelencia Institucional
                 </span>
-                <h3 className="text-4xl xs:text-5xl md:text-[110px] font-display font-extrabold tracking-[calc(-0.06em)] text-latham-navy leading-[0.85]">
+                <h3 className="text-4xl xs:text-5xl md:text-[110px] font-display font-extrabold tracking-tighter text-latham-navy leading-tight md:leading-[0.85]">
                   LIDERAZGO <br /> 
                   <span className="text-latham-red">JURÍDICO</span> <br /> 
                   TOTAL.
