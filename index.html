@@ -1,176 +1,46 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espinal, Almonte & Ricth | Inteligencia Jurídica</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;700;900&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'latham': {
-                            'navy': '#002244',
-                            'red': '#E31837',
-                            'black': '#0a0a0a',
-                            'grey-light': '#f8f9fa',
-                            'grey-mid': '#e5e7eb',
-                        }
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'display': ['Outfit', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
-        .float-icon { animation: float 3s ease-in-out infinite; }
-        .latham-link { position: relative; }
-        .latham-link::after { content: ''; position: absolute; width: 0; height: 1px; bottom: 0; left: 0; background-color: #E31837; transition: width 0.3s; }
-        .latham-link:hover::after { width: 100%; }
-        html { scroll-behavior: smooth; }
-    </style>
-</head>
-<body class="bg-white text-latham-black">
-    <div id="root"></div>
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { createServer as createViteServer } from 'vite';
+import { Resend } from 'resend';
+import dotenv from 'dotenv';
 
-    <!-- Scripts para React via CDN -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+dotenv.config();
 
-    <script type="text/babel">
-        const { useState, useEffect } = React;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-        const App = () => {
-            const [scrolled, setScrolled] = useState(false);
+async function startServer() {
+  const app = express();
+  app.use(express.json());
 
-            useEffect(() => {
-                const handleScroll = () => setScrolled(window.scrollY > 50);
-                window.addEventListener('scroll', handleScroll);
-                return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
+  // Tu API Key activa
+  const resend = new Resend('re_DhiVaWyf_E4WoXnRak8k7LNALwhBFzXcf');
 
-            return (
-                <div className="min-h-screen">
-                    {/* Navigation */}
-                    <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white shadow-xl py-3' : 'bg-transparent py-6'}`}>
-                        <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center text-latham-navy">
-                            <div className="flex flex-col">
-                                <h1 className={`font-display font-extrabold tracking-tighter leading-none flex items-center gap-1 ${scrolled ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl text-white md:text-latham-navy'}`}>
-                                    ESPINAL, ALMONTE <span className="text-latham-red">&</span> RICTH
-                                </h1>
-                                <p className={`text-[7px] md:text-[9px] uppercase tracking-[0.4em] font-bold mt-2 ${scrolled ? 'text-slate-400' : 'text-white/60 md:text-slate-400'}`}>Inteligencia Jurídica • Consultores de Élite</p>
-                            </div>
-                            <div className="hidden md:flex gap-10 text-[10px] font-bold uppercase tracking-widest">
-                                <a href="#firma" className="latham-link">Firma</a>
-                                <a href="#servicios" className="latham-link">Prácticas</a>
-                                <a href="#contacto" className="bg-latham-red text-white px-6 py-3 rounded-sm hover:bg-latham-navy transition-colors">Consulta Directa</a>
-                            </div>
-                        </div>
-                    </nav>
+  app.post('/api/contact', async (req, res) => {
+    const { name, email, message } = req.body;
+    try {
+      await resend.emails.send({
+        from: 'Firma Web <onboarding@resend.dev>',
+        to: ['info@oficinaespinal.do'],
+        subject: `Consulta: ${name}`,
+        replyTo: email,
+        html: `<p><strong>Nombre:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Mensaje:</strong> ${message}</p>`,
+      });
+      res.status(200).json({ status: 'ok' });
+    } catch (e) {
+      res.status(500).json({ error: 'Fallo al enviar' });
+    }
+  });
 
-                    {/* Hero */}
-                    <section className="h-screen bg-latham-navy flex items-center relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2400" className="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-latham-navy to-transparent"></div>
-                        <div className="relative z-10 max-w-[1400px] mx-auto px-6 w-full">
-                            <div className="max-w-4xl space-y-10">
-                                <span className="text-latham-red text-sm font-bold uppercase tracking-[0.6em] border-l-4 border-latham-red pl-4">Institutional Power</span>
-                                <h2 className="text-5xl md:text-[90px] font-display font-extrabold leading-[0.9] text-white tracking-tighter">
-                                    Blindaje Legal <br />
-                                    <span className="italic font-light opacity-50">Para Su Patrimonio</span> <br />
-                                    Y Visión Global.
-                                </h2>
-                                <p className="text-xl text-slate-300 max-w-xl font-light">Liderazgo jurídico basado en resultados y ética absoluta en la República Dominicana.</p>
-                            </div>
-                        </div>
-                    </section>
+  if (process.env.NODE_ENV !== 'production') {
+    const vite = await createViteServer({ server: { middlewareMode: true }, appType: 'spa' });
+    app.use(vite.middlewares);
+  } else {
+    app.use(express.static(path.join(process.cwd(), 'dist')));
+    app.get('*', (_, res) => res.sendFile(path.join(process.cwd(), 'dist/index.html')));
+  }
 
-                    {/* About Section */}
-                    <section id="firma" className="py-40 bg-white">
-                        <div className="max-w-[1400px] mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
-                            <div className="space-y-12">
-                                <span className="text-latham-red font-bold uppercase tracking-widest flex items-center gap-4">
-                                    <div className="w-10 h-px bg-latham-red"></div> Excelencia Institucional
-                                </span>
-                                <h3 className="text-5xl md:text-7xl font-display font-extrabold tracking-tighter text-latham-navy leading-none">
-                                    Resultados <br /> y ética absoluta.
-                                </h3>
-                                <p className="text-xl text-slate-600 leading-relaxed font-light border-l-4 border-latham-red pl-8 italic">
-                                    "Cada movimiento legal es una pieza en la arquitectura del éxito de nuestros clientes corporativos e individuales."
-                                </p>
-                            </div>
-                            <div className="relative">
-                                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000" className="w-full aspect-[4/3] object-cover shadow-[40px_40px_0px_#f5f5f5]" />
-                                <div className="absolute -bottom-10 -left-10 bg-latham-navy p-10 text-white shadow-2xl">
-                                    <p className="text-5xl font-display font-extrabold">98%</p>
-                                    <p className="text-[10px] uppercase font-bold tracking-widest mt-2">Retención de Clientes</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Contact Form Section */}
-                    <section id="contacto" className="py-40 bg-latham-grey-light">
-                        <div className="max-w-[1400px] mx-auto px-6 grid md:grid-cols-12 gap-20">
-                            <div className="md:col-span-5 space-y-10">
-                                <h3 className="text-5xl font-display font-extrabold tracking-tighter text-latham-navy">Inicie una consulta confidencial.</h3>
-                                <div className="space-y-8">
-                                    <div className="flex gap-6">
-                                        <div className="bg-white p-4 shadow-sm text-latham-red font-bold">SDQ</div>
-                                        <div>
-                                            <p className="font-bold text-latham-navy uppercase tracking-widest text-xs">Sede Central</p>
-                                            <p className="text-slate-500 mt-1 font-medium">Avenida Winston Churchill 103, 01030, Santo Domingo</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex gap-6">
-                                        <div className="bg-white p-4 shadow-sm text-latham-red font-bold">PHO</div>
-                                        <div>
-                                            <p className="font-bold text-latham-navy uppercase tracking-widest text-xs">Línea Directa</p>
-                                            <p className="text-latham-red font-extrabold text-xl mt-1 tracking-tighter">+1 829.442.4222</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="md:col-span-7 bg-white p-12 shadow-2xl border-t-8 border-latham-red">
-                                <form className="space-y-8" action="/api/contact" method="POST">
-                                    <div className="space-y-2">
-                                        <label className="text-[11px] font-bold uppercase tracking-widest text-slate-400">Identidad Corporativa</label>
-                                        <input required name="name" type="text" placeholder="Nombre completo" className="w-full border-b-2 border-slate-200 py-4 focus:border-latham-red outline-none transition-all font-display font-bold text-lg" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="text-[11px] font-bold uppercase tracking-widest text-slate-400">Vínculo de Contacto</label>
-                                        <input required name="email" type="email" placeholder="Email corporativo" className="w-full border-b-2 border-slate-200 py-4 focus:border-latham-red outline-none transition-all font-display font-bold text-lg" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="text-[11px] font-bold uppercase tracking-widest text-slate-400">Materia del Caso</label>
-                                        <textarea required name="message" rows="3" placeholder="Resumen de requerimiento..." className="w-full border-b-2 border-slate-200 py-4 focus:border-latham-red outline-none transition-all text-lg"></textarea>
-                                    </div>
-                                    <button className="w-full bg-latham-navy text-white text-xs font-bold uppercase tracking-[0.3em] py-6 hover:bg-latham-red transition-all shadow-xl">Solicitar Intervención Legal</button>
-                                </form>
-                            </div>
-                        </div>
-                    </section>
-
-                    <footer className="bg-latham-navy text-white/50 py-12 border-t border-white/5">
-                        <div className="max-w-[1400px] mx-auto px-6 flex justify-between text-[10px] font-bold uppercase tracking-[0.3em]">
-                            <span>© 2024 Espinal, Almonte & Ricth</span>
-                            <span className="text-latham-red">Avenida Winston Churchill 103, Santo Domingo, RD</span>
-                        </div>
-                    </footer>
-                </div>
-            );
-        };
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-</body>
-</html>
+  app.listen(3000, '0.0.0.0', () => console.log('Servidor en puerto 3000'));
+}
+startServer();
